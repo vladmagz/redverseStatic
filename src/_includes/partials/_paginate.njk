@@ -1,0 +1,17 @@
+{% set previousPost = collections.post | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.post | getNextCollectionItem(page) %}
+<div class="paginate">
+  {% if previousPost %}
+    <a class="paginate__prev" href="{{ previousPost.url }}">
+      <span class="paginate__label">Previous:</span>
+      <span class="paginate__title">{{ previousPost.data.title }}</span>
+    </a>
+  {% endif %}
+
+  {% if nextPost %}
+    <a class="paginate__next" href="{{ nextPost.url }}">
+      <span class="paginate__label">Next:</span>
+      <span class="paginate__title">{{ nextPost.data.title }}</span>
+    </a>
+  {% endif %}
+</div>
