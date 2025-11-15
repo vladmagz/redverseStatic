@@ -3,7 +3,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/css/style.css");
   eleventyConfig.addPassthroughCopy("src/assets/css/tailwind.css");
   eleventyConfig.addPassthroughCopy("src/assets/images");
-  eleventyConfig.addPassthroughCopy("src/robots.txt": "/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_includes/shortcodes/pageheader.js");
   
 const { DateTime } = require("luxon")
 
