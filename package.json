@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
+    "build:css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --postcss",
     "dev:11ty": "eleventy --serve",
     "dev:css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch --postcss",
-    "build:11ty": "eleventy",
-    "build:css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --postcss"
+    "build:11ty": "eleventy"
   },
   "keywords": [],
   "author": "",
@@ -17,10 +17,10 @@
   "type": "commonjs",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.22",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.5"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^6.0.4"
