@@ -1,12 +1,13 @@
+const Image = require("@11ty/eleventy-img");
+const { DateTime } = require("luxon");
+const pageHeader = require("./src/_includes/shortcodes/pageHeader");
+
 //pass-through
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/css/style.css");
   eleventyConfig.addPassthroughCopy("src/assets/css/tailwind.css");
   eleventyConfig.addPassthroughCopy("src/assets/images");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/_includes/shortcodes/pageheader.js");
-  
-const { DateTime } = require("luxon")
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
 
 //shortcodes - basically, a function
 eleventyConfig.addShortcode("pageHeader", pageHeader);
