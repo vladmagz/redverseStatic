@@ -1,6 +1,7 @@
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const pageHeading = require("./src/_includes/shortcodes/pageHeading.js");
+const { JSDOM } = require("jsdom");
 
 //pass-through
 module.exports = function(eleventyConfig) {
@@ -28,6 +29,12 @@ eleventyConfig.addFilter("postDate", (dateObj) => {
     });
   });
  
+ eleventyConfig.addShortcode("firstImage", function(content) {
+  if(!content) return "";
+  const dom = new JSDOM(content);
+  const img = dom.window.document.querySelector("img");
+  return img ? img.outerHTML : "";
+});
 
   return {
     dir: {

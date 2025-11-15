@@ -8,11 +8,29 @@ order: 3
 
 <h1>Blog Home</h1><br>
 
-<ul class='blog-list'>
+{#<ul class='blog-list'>
     {% for post in collections.post %}
         <li class="blog-list-item">
             <a class="blog-list-link" href="{{post.url}}">{{ post.data.title }}</a>
 			<small class="blog-list-date">{{post.date | postDate}}</small>
         </li>
     {% endfor %}
+</ul> #}
+
+<ul class='blog-list'>
+    {% for post in collections.post %}
+        <li class="blog-list-item">
+            <a class="blog-list-link" href="{{ post.url }}">
+
+                <div class="blog-thumb">
+					{% if post.templateContent %}
+						{{ firstImage(post.templateContent) | safe }}
+					{% endif %}
+				</div>
+                <h2>{{ post.data.title }}</h2>
+                <small class="blog-list-date">{{ post.date | postDate }}</small>
+            </a>
+        </li>
+    {% endfor %}
 </ul>
+
