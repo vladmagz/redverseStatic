@@ -1,8 +1,8 @@
 {
-  "name": "learneleventy",
+  "name": "Redverse",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.njk",
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",

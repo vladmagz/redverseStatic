@@ -1,6 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
-const pageHeader = require("./src/_includes/shortcodes/pageHeader");
+const pageHeading = require("./src/_includes/shortcodes/pageHeading.js");
 
 //pass-through
 module.exports = function(eleventyConfig) {
@@ -10,7 +10,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
 
 //shortcodes - basically, a function
-eleventyConfig.addShortcode("pageHeader", pageHeader);
+eleventyConfig.addShortcode("pageHeading", pageHeading);
 
 
 //sorting
