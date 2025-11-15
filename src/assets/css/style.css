@@ -57,7 +57,8 @@ main {
 }
 
 main > h1 {
-  margin-block-end: .5rem;
+  margin-block-start: 1.5rem;
+  margin-block-end: .3rem;
 }
 
 main > img {
@@ -72,6 +73,9 @@ footer {
   background-color: black;
   color: lightgray;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   
 }
 
@@ -79,7 +83,7 @@ footer {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   border-top: 1px solid #444;
 }
 
@@ -94,8 +98,34 @@ footer {
 
 .paginate__title {
   font-weight: 400; /* обычный */
+  color: indigo;
 }
 
 .paginate > a:hover .paginate__title{
   text-decoration: underline;
+}
+
+.blog-list {
+ list-style-type: none;
+}
+
+.blog-list-item {
+  padding-inline: 1rem;
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column; /* ← вот это */
+  gap: .25rem;
+  justify-content: space-between;
+  border: 3px solid #CCCCDD;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px   rgb(0, 0, 0, .1);
+}
+
+.blog-list-item + .blog-list-item{
+  margin-block-start: 1.5rem;
+}
+
+.blog-list a{
+  color: blueviolet;
+  font-size: 1.1rem;
 }

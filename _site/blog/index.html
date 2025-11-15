@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="/assets/css/style.css">
-	<!--<link rel="stylesheet" href="/assets/css/tailwind.css"> -->
+	<link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet"> 
@@ -16,39 +16,65 @@
     <title>Redverse - Blog  </title>
     <meta name="description" content="
       
-        A site to showcase my Lego builds, my other creation and to share my mind flow
+        This is the blog home
       
     "/>
   </head>
   <body>
    <nav>
-    <nav><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a></nav>
-   </nav>
-   <main>
     
-<h1>Blog Home</h1>
+<header class="bg-black text-gray-50 py-4">
+<nav class="max-w-2xl mx-auto text-lg space-x-6">
+	
+	<a href="/"
+	
+	class="hover:text-sky-400"
+	>Home</a>
+	
+	<a href="/about/"
+	
+	class="hover:text-sky-400"
+	>About</a>
+	
+	<a href="/blog/"
+	
+		aria-current='page' data-state='active'
+	
+	class="hover:text-sky-400"
+	>Blog</a>
+	
+</nav>
 
-<ul>
+</header>
+   </nav>
+   <main class="max-w-3xl mx-auto py-12 min-h-screen">
     
-        <li>
-            <a href="/blog/firstpost/">First Post</a>
+<h1>Blog Home</h1><br>
+
+<ul class='blog-list'>
+    
+        <li class="blog-list-item">
+            <a class="blog-list-link" href="/blog/firstpost/">First Post</a>
+			<small class="blog-list-date">Jan 1, 1970</small>
         </li>
     
-        <li>
-            <a href="/blog/webring/">Webring</a>
+        <li class="blog-list-item">
+            <a class="blog-list-link" href="/blog/webring/">Webring</a>
+			<small class="blog-list-date">Jan 1, 1995</small>
         </li>
     
-        <li>
-            <a href="/blog/shitpost/">zzzzzzzzzzz</a>
+        <li class="blog-list-item">
+            <a class="blog-list-link" href="/blog/shitpost/">zzzzzzzzzzz</a>
+			<small class="blog-list-date">Oct 10, 2000</small>
         </li>
     
 </ul>
 
    </main>
    <footer>
-    <a href="/">Home</a>
-<a href="/">Blog</a>
-<a href="/about">About</a>
+    <footer>
+    &copy; 2025 | Redverse
+</footer>
    </footer>
   </body>
 </html>
