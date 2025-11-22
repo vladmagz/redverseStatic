@@ -28,13 +28,14 @@ eleventyConfig.addCollection("page", function(collections) {
       return a.data.order - b.data.order;
     });
   });
- 
-eleventyConfig.addShortcode("firstImage", function(content) {
-  if(!content) return "";
-  const dom = new JSDOM(content);
-  const img = dom.window.document.querySelector("img");
-  return img ? img.outerHTML : "";
+  
+eleventyConfig.addCollection("post", function (collectionApi) {
+  return collectionApi.getFilteredByTag("post").sort((a, b) => {
+    return b.date - a.date; // новые сверху
+  });
 });
+
+ 
 
   return {
     dir: {
