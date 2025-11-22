@@ -2,7 +2,7 @@
 layout: base
 title: About
 tags: page
-order: 2
+order: 3
 ---
 
 # About Page

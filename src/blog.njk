@@ -3,7 +3,7 @@ layout: base
 title: Blog
 description: This is the blog home
 tags: page
-order: 3
+order: 2
 ---
 
 <h1>Blog Home</h1><br>
@@ -12,15 +12,15 @@ order: 3
     {% for post in collections.post %}
         <li>
 			<a href="{{post.url}}" class="blog-list-item">
+				<div class="blog-list-title">
+                    {{ post.data.title }}
+                </div>
 				<div class="blog-thumb">
                     {% if post.data.hero %}
                         <img src="{{ post.data.hero }}" alt="{{ post.data.title }}">
                     {% endif %}
                 </div>
-				<div class="blog-list-title">
-                    {{ post.data.title }}
-                </div>
-				<div class="blog-list_desc">
+				<div class="blog-list-desc">
                     {% if post.data.description %}
                         {{ post.data.description }}
                     {% endif %}
