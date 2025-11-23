@@ -30,6 +30,7 @@ eleventyConfig.addCollection("page", function(collections) {
     });
   });
   
+  
 eleventyConfig.addCollection("post", function (collectionApi) {
   return collectionApi.getFilteredByTag("post").sort((a, b) => {
     return b.date - a.date; // новые сверху

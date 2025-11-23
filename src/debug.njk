@@ -1,0 +1,14 @@
+---
+layout: base
+title: Debug Orders
+---
+
+<h1>Debug Orders</h1>
+
+<ul>
+{% for page in collections.page %}
+  <li>
+    {{ page.url }} — order: {{ page.data.order | default("none") }}
+  </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,39 @@
+---
+layout: base
+title: Blog
+description: This is the blog home
+tags: page
+order: 2
+
+pagination:
+  data: collections.post
+  size: 5
+  alias: posts
+
+permalink: "/blog/page/{{ pagination.pageNumber + 1 }}/"
+---
+
+<h1>Blog Home</h1><br>
+
+<ul class='blog-list'>
+    {% for post in posts %}
+        <li>
+			<a href="{{post.url}}" class="blog-list-item">
+				<div class="blog-thumb">
+                    {% if post.data.hero %}
+                        <img src="{{ post.data.hero }}" alt="{{ post.data.title }}">
+                    {% endif %}
+                </div>
+				<div class="blog-list-title">
+                    {{ post.data.title }}
+                </div>
+				<div class="blog-list-desc">
+                    {% if post.data.description %}
+                        {{ post.data.description }}
+                    {% endif %}
+                </div>
+				<small class="blog-list-date">{{post.date | postDate}}</small>
+			</a>
+        </li>
+    {% endfor %}
+</ul>

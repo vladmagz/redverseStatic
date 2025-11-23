@@ -13,6 +13,7 @@
   --dark-plain-text: #FAEEEB;
   --dark-border: #702E1F;
   --dark-semi-text: #AAAABB;
+  --icon-gap: 5rem;
 }
 
 html {
@@ -45,17 +46,28 @@ a:hover {
 
 
 .icon-row {	
-  padding: 1rem ;
-  gap: 5rem;
+  margin-top: 1rem ;
   display: flex;
-  align-items: center; /* вертикальное выравнивание */
+  align-items: center;
   justify-content: center;
 }
 
 .icon {
-  display: inline-flex;      /* чтобы можно было управлять размером и центровкой */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
   height: 3rem;
+}
+
+.icon + .icon{
+  margin-left: var(--icon-gap);
+  }
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 img {
@@ -201,6 +213,10 @@ footer {
   overflow-wrap: break-word;
   word-wrap: break-word;  /* для старых браузеров */
   word-break: break-word;
+}
+
+.blog-thumb > img {
+  border-radius: 5px;
 }
 
 

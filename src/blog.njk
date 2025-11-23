@@ -1,32 +1,9 @@
 ---
 layout: base
 title: Blog
-description: This is the blog home
 tags: page
 order: 2
+permalink: "/blog/index.html"
 ---
-
-<h1>Blog Home</h1><br>
-
-<ul class='blog-list'>
-    {% for post in collections.post %}
-        <li>
-			<a href="{{post.url}}" class="blog-list-item">
-				<div class="blog-list-title">
-                    {{ post.data.title }}
-                </div>
-				<div class="blog-thumb">
-                    {% if post.data.hero %}
-                        <img src="{{ post.data.hero }}" alt="{{ post.data.title }}">
-                    {% endif %}
-                </div>
-				<div class="blog-list-desc">
-                    {% if post.data.description %}
-                        {{ post.data.description }}
-                    {% endif %}
-                </div>
-				<small class="blog-list-date">{{post.date | postDate}}</small>
-			</a>
-        </li>
-    {% endfor %}
-</ul>
+<meta http-equiv="refresh" content="0; url=/blog/page/1/">
+<p>If you are not redirected automatically, <a href="/blog/page/1/">click here</a>.</p>
