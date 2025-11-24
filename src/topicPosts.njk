@@ -5,16 +5,38 @@ pagination:
   size: 1
   alias: topicPage
 permalink: "{{ topicPage.permalink }}"
+currentTopic: "{{ page.fileSlug }}"
 ---
 
-<h1 class="page-heading">Posts about: {{ topicPage.topic }}</h1>
+<h1>Blog</h1><br>
 
-<ul class="blog-posts">
+<p>Current topic: {{ currentTopic }}</p>
+<div class="topics-panel">
+  <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>
+  {% for topic in collections.topicsList %}
+    <a href="/blog/topic/{{ topic | slugify }}/page/1/" class="topic-btn {% if topic == currentTopic %}active{% endif %}">{{ topic }}</a>
+  {% endfor %}
+</div>
+
+
+<ul class='blog-list'>
   {% for post in topicPage.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.data.title }}</a>
-      <span class="post-date">{{ post.date | postDate }}</span>
-    </li>
+  <li class="blog-post">
+    <a href="{{ post.url }}" class="blog-list-item">
+      <div class="blog-thumb">
+        {% if post.data.hero %}
+          {% image post.data.hero, post.data.title %}
+        {% endif %}
+      </div>
+      <div class="blog-list-title">{{ post.data.title }}</div>
+      <div class="blog-list-desc">
+        {% if post.data.description %}
+          {{ post.data.description }}
+        {% endif %}
+      </div>
+      <small class="blog-list-date">{{ post.date | postDate }}</small>
+    </a>
+  </li>
   {% endfor %}
 </ul>
 

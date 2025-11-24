@@ -69,6 +69,7 @@ eleventyConfig.addNunjucksFilter("range", function(n) {
 eleventyConfig.addCollection("topicPages", function(collectionApi) {
   const posts = collectionApi.getFilteredByTag("post");
   const topicsMap = {};
+  const pageSize = 5;
 
   posts.forEach(post => {
     const topics = post.data.topics || [];
@@ -79,24 +80,24 @@ eleventyConfig.addCollection("topicPages", function(collectionApi) {
   });
 
   const topicPages = [];
-  const pageSize = 5; // количество постов на одной странице
 
   Object.entries(topicsMap).forEach(([topic, postsForTopic]) => {
     const pageCount = Math.ceil(postsForTopic.length / pageSize);
-
     for (let i = 0; i < pageCount; i++) {
       topicPages.push({
+        currentTopic: topic, // <- вот это добавляем
         topic,
         posts: postsForTopic.slice(i * pageSize, (i + 1) * pageSize),
         pageNumber: i,
         totalPages: pageCount,
-        permalink: `/blog/topic/${encodeURIComponent(topic)}/page/${i + 1}/`
+        permalink: `/blog/topic/${topic}/page/${i + 1}/`
       });
     }
   });
 
   return topicPages;
 });
+
 
 
   return {

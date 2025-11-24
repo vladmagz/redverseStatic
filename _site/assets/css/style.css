@@ -258,5 +258,31 @@ footer {
   color: var(--dark-link-hover);
   font-weight: 700;
 }
+.topics-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
 
+.topics-panel a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--dark-link);
+  color: var(--dark-bg);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
 
+.topics-panel a:hover {
+  background: var(--dark-link-hover);
+  color: var(--dark-bg);
+}
+
+.topics-panel a.active {
+  background: var(--dark-border);
+  color: var(--dark-link-hover);
+  font-weight: 700;
+}
