@@ -7,7 +7,8 @@ order: 2
 
 pagination:
   data: collections.post
-  size: 5
+  size: 6
+ 
   alias: posts
 
 permalink: "/blog/page/{{ pagination.pageNumber + 1 }}/"
@@ -15,25 +16,85 @@ permalink: "/blog/page/{{ pagination.pageNumber + 1 }}/"
 
 <h1>Blog Home</h1><br>
 
+<div class="topics-panel">
+  {% for topic in collections.topicsList %}
+    <button class="topic-btn" data-topic="{{ topic }}">{{ topic }}</button>
+  {% endfor %}
+</div>
+
 <ul class='blog-list'>
-    {% for post in posts %}
-        <li>
-			<a href="{{post.url}}" class="blog-list-item">
-				<div class="blog-thumb">
-                    {% if post.data.hero %}
-                        <img src="{{ post.data.hero }}" alt="{{ post.data.title }}">
-                    {% endif %}
-                </div>
-				<div class="blog-list-title">
-                    {{ post.data.title }}
-                </div>
-				<div class="blog-list-desc">
-                    {% if post.data.description %}
-                        {{ post.data.description }}
-                    {% endif %}
-                </div>
-				<small class="blog-list-date">{{post.date | postDate}}</small>
-			</a>
-        </li>
-    {% endfor %}
+  {% for post in posts %}
+  <li class="blog-post" data-topics="{{ (post.data.topics or []) | join(',') }}">
+    <a href="{{post.url}}" class="blog-list-item">
+      <div class="blog-thumb">
+        {% if post.data.hero %}
+          {% image post.data.hero, post.data.title %}
+        {% endif %}
+      </div>
+      <div class="blog-list-title">{{ post.data.title }}</div>
+      <div class="blog-list-desc">
+        {% if post.data.description %}
+          {{ post.data.description }}
+        {% endif %}
+      </div>
+      <small class="blog-list-date">{{post.date | postDate}}</small>
+    </a>
+  </li>
+  {% endfor %}
 </ul>
+
+{% if pagination.pages | length > 1 %}
+<nav class="blog-pagination">
+  <ul>
+    {% if pagination.pageNumber > 0 %}
+      <li><a href="/blog/page/{{ pagination.pageNumber }}/">« Newer</a></li>
+    {% endif %}
+
+    {% for i in range(0, pagination.pages | length) %}
+      {% if i == pagination.pageNumber %}
+        <li><strong>{{ i + 1 }}</strong></li>
+      {% else %}
+        <li><a href="/blog/page/{{ i + 1 }}/">{{ i + 1 }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if pagination.pageNumber < pagination.pages | length - 1 %}
+      <li><a href="/blog/page/{{ pagination.pageNumber + 2 }}/">Older »</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".topic-btn")
+  const posts = document.querySelectorAll(".blog-post") // исправлено на li
+
+  let activeTopics = new Set()
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const topic = btn.dataset.topic
+
+      // включаем или выключаем топик
+      if (activeTopics.has(topic)) {
+        activeTopics.delete(topic)
+        btn.classList.remove("active")
+      } else {
+        activeTopics.add(topic)
+        btn.classList.add("active")
+      }
+
+      // фильтрация постов
+      posts.forEach(post => {
+        const postTopics = post.dataset.topics ? post.dataset.topics.split(",") : []
+        let visible = true
+        activeTopics.forEach(t => {
+          if (!postTopics.includes(t)) visible = false
+        })
+        post.style.display = visible ? "" : "none"
+      })
+    })
+  })
+})
+</script>

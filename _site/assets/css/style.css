@@ -216,7 +216,47 @@ footer {
 }
 
 .blog-thumb > img {
+  width: 100%;
+  height: auto; /* сохраняет пропорции */
+  display: block; /* чтобы убрать лишние пробелы */
+  object-fit: cover; /* если хочешь обрезку, а не растяжку */
   border-radius: 5px;
+}
+
+.blog-pagination {
+  background: var(--dark-bg);
+}
+
+.blog-pagination ul {
+  list-style: none; /* убираем точки */
+  padding: 0;
+  display: flex; /* горизонтальное расположение */
+  gap: 10px; /* расстояние между элементами */
+}
+
+.blog-pagination li {
+  display: inline-block; /* или просто оставь flex на ul, li тоже подстроится */
+}
+
+.blog-pagination a {
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--dark-link);
+  color: var(--dark-bg);  
+  font-weight: 600;
+}
+
+.blog-pagination a:hover{
+  color: var(--dark-link-hover);
+}
+
+.blog-pagination strong {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--dark-border);
+  color: var(--dark-link-hover);
+  font-weight: 700;
 }
 
 
