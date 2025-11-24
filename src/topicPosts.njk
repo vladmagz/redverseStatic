@@ -1,0 +1,33 @@
+---
+layout: base
+pagination:
+  data: collections.topicPages
+  size: 1
+  alias: topicPage
+permalink: "{{ topicPage.permalink }}"
+---
+
+<h1 class="page-heading">Posts about: {{ topicPage.topic }}</h1>
+
+<ul class="blog-posts">
+  {% for post in topicPage.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <span class="post-date">{{ post.date | postDate }}</span>
+    </li>
+  {% endfor %}
+</ul>
+
+{% if topicPage.totalPages > 1 %}
+<nav class="pagination">
+  {% if topicPage.pageNumber > 0 %}
+    <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber }}/">← Назад</a>
+  {% endif %}
+
+  <span>Page {{ topicPage.pageNumber + 1 }} of {{ topicPage.totalPages }}</span>
+
+  {% if topicPage.pageNumber + 1 < topicPage.totalPages %}
+    <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber + 2 }}/">Вперед →</a>
+  {% endif %}
+</nav>
+{% endif %}

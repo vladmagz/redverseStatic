@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
 //shortcodes - basically, a function
 eleventyConfig.addShortcode("pageHeading", pageHeading);
 
+
 //sorting
 eleventyConfig.addShortcode("currentDate", (date = DateTime.now()) => {
 	return date;
@@ -37,39 +38,66 @@ eleventyConfig.addCollection("post", function (collectionApi) {
   });
 });
 
-
-eleventyConfig.addCollection("topicsList", function(collection) {
-  let topics = new Set()
-
-  collection.getAll().forEach(item => {
-    if (item.data.topics) {
-      item.data.topics.forEach(t => topics.add(t))
-    }
-  })
-
-  return [...topics]
-});
-
-eleventyConfig.addCollection("postsByTopic", function(collection) {
-  const posts = collection.getFilteredByTag("post")
-
-  let map = {}
-
-  posts.forEach(post => {
-    let topics = post.data.topics || []
-
-    topics.forEach(topic => {
-      if (!map[topic]) map[topic] = []
-      map[topic].push(post)
-    })
-  })
-
-  return map
-});
-
 eleventyConfig.addNunjucksFilter("range", function(n) {
   return [...Array(n).keys()];
 }); 
+
+  // Все уникальные топики
+  eleventyConfig.addCollection("topicsList", (collection) => {
+    const topics = new Set();
+    collection.getAll().forEach(item => {
+      if (item.data.topics) item.data.topics.forEach(t => topics.add(t));
+    });
+    return [...topics];
+  });
+
+  // Посты по топикам
+  eleventyConfig.addCollection("postsByTopic", (collection) => {
+    const posts = collection.getFilteredByTag("post");
+    const map = {};
+    posts.forEach(post => {
+      const topics = post.data.topics || [];
+      topics.forEach(topic => {
+        if (!map[topic]) map[topic] = [];
+        map[topic].push(post);
+      });
+    });
+    return map;
+  });
+  
+ // автоматические страницы топиков с пагинацией
+eleventyConfig.addCollection("topicPages", function(collectionApi) {
+  const posts = collectionApi.getFilteredByTag("post");
+  const topicsMap = {};
+
+  posts.forEach(post => {
+    const topics = post.data.topics || [];
+    topics.forEach(topic => {
+      if (!topicsMap[topic]) topicsMap[topic] = [];
+      topicsMap[topic].push(post);
+    });
+  });
+
+  const topicPages = [];
+  const pageSize = 5; // количество постов на одной странице
+
+  Object.entries(topicsMap).forEach(([topic, postsForTopic]) => {
+    const pageCount = Math.ceil(postsForTopic.length / pageSize);
+
+    for (let i = 0; i < pageCount; i++) {
+      topicPages.push({
+        topic,
+        posts: postsForTopic.slice(i * pageSize, (i + 1) * pageSize),
+        pageNumber: i,
+        totalPages: pageCount,
+        permalink: `/blog/topic/${encodeURIComponent(topic)}/page/${i + 1}/`
+      });
+    }
+  });
+
+  return topicPages;
+});
+
 
   return {
     dir: {
@@ -112,4 +140,4 @@ async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp",
       </picture>
     </div>
   `;
-};
+}
