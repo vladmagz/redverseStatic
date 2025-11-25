@@ -120,33 +120,54 @@ footer {
   display: flex;
   
 }
-
 .paginate {
   display: flex;
-  justify-content: space-between;
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--dark-border);
 }
 
-.paginate > a {
+/* оба поста есть */
+.paginate:has(.paginate__prev):has(.paginate__next) {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* только previous */
+.paginate:has(.paginate__prev):not(:has(.paginate__next)) {
+  justify-content: flex-start;
+}
+
+/* только next */
+.paginate:has(.paginate__next):not(:has(.paginate__prev)) {
+  justify-content: flex-end;
+}
+
+/* внутренности ссылок */
+.paginate__prev,
+.paginate__next {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
 }
 
 .paginate__label {
-  font-weight: 700; /* жирный */
-  margin-right: .25rem;
+  font-weight: 700;
   color: white;
 }
 
 .paginate__title {
-  font-weight: 400; /* обычный */
+  font-weight: 400;
   color: var(--dark-link);
 }
 
-.paginate > a:hover .paginate__title{
+.paginate__prev:hover .paginate__title,
+.paginate__next:hover .paginate__title {
   text-decoration: underline;
   color: var(--dark-link-hover);
 }
+
 
 .blog-list {
   list-style: none;
@@ -285,4 +306,42 @@ footer {
   background: var(--dark-border);
   color: var(--dark-link-hover);
   font-weight: 700;
+}
+.moc-gallery {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.moc-card {
+  position:relative;
+  overflow:hidden;
+  border-radius:5px;
+}
+
+.moc-card img {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.moc-title {
+  position:absolute;
+  left:0;
+  bottom:-100%;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  padding:10px;
+  transition:bottom 0.25s;
+  border-radius:0 0 5px 5px;
+  overflow-wrap:break-word;
+  word-break:break-word;
+}
+
+.moc-card:hover .moc-title {
+  bottom:0;
 }

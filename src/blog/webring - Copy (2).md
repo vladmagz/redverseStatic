@@ -1,6 +1,7 @@
 ---
 title: Webring2
 description: Webring2
+hero: "/assets/images/MocCsmDenji/main.png"
 date: 1995-01-03
 ---
 

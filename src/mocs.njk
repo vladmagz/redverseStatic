@@ -1,0 +1,23 @@
+---
+layout: base
+title: Creations
+tags: page
+order: 2
+permalink: "/gallery/"
+postCollection: collections.postsByTopic["MOC"]
+---
+
+<h1>MOC Gallery</h1>
+
+<div class="moc-gallery">
+  {% for post in collections.postsByTopic["MOC"] %}
+    <a class="moc-card" href="{{ post.url }}?gallery=true">
+      <div class="moc-thumb">
+        {% if post.data.hero %}
+          {% image post.data.hero, post.data.title %}
+        {% endif %}
+      </div>
+      <div class="moc-title">{{ post.data.title }}</div>
+    </a>
+  {% endfor %}
+</div>

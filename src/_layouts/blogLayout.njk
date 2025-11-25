@@ -2,16 +2,22 @@
 layout: base
 ---
 
-<div>
-    <div class="blog-post-content">
-		{{ content| safe }}
-	</div>
+<div class="blog-post-content">
+    {{ content | safe }}
 </div>
-<br/> <br/>
-<div>
-    {% include "partials/_paginate.njk" %}
+
+<!-- Счётчик просмотров -->
+<div id="post-views" data-slug="{{ page.fileSlug }}">
+    Views: <span>0</span>
 </div>
-<br/> <hr/> <br/>
+<script type="module" src="/js/views.js"></script>
+
+<!-- Пагинация -->
+{% set postCollection = page.postCollection %}
+{% include "partials/_paginate.njk" %}
+
+<br/><hr/><br/>
+
 <div>
     <a href="/blog">Blog Home</a>
 </div>

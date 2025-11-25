@@ -5,12 +5,12 @@ pagination:
   size: 1
   alias: topicPage
 permalink: "{{ topicPage.permalink }}"
-currentTopic: "{{ page.fileSlug }}"
+eleventyComputed:
+  currentTopic: "{{ topicPage.topic }}"
 ---
 
 <h1>Blog</h1><br>
 
-<p>Current topic: {{ currentTopic }}</p>
 <div class="topics-panel">
   <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>
   {% for topic in collections.topicsList %}

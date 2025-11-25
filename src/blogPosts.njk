@@ -15,7 +15,6 @@ permalink: "/blog{% if currentTopic %}/topic/{{ currentTopic | slugify }}{% endi
 ---
 
 <h1>Blog</h1><br>
-<p>Current topic: {{ currentTopic }}</p>
 
 <div class="topics-panel">
   <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>

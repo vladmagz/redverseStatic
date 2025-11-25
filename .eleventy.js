@@ -38,6 +38,7 @@ eleventyConfig.addCollection("post", function (collectionApi) {
   });
 });
 
+
 eleventyConfig.addNunjucksFilter("range", function(n) {
   return [...Array(n).keys()];
 }); 

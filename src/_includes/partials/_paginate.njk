@@ -1,5 +1,8 @@
-{% set previousPost = collections.post | getPreviousCollectionItem(page) %}
-{% set nextPost = collections.post | getNextCollectionItem(page) %}
+{% set postCollection = postCollection or collections.post %}
+
+{% set previousPost = postCollection | getPreviousCollectionItem(page) %}
+{% set nextPost = postCollection | getNextCollectionItem(page) %}
+
 <div class="paginate">
   {% if previousPost %}
     <a class="paginate__prev" href="{{ previousPost.url }}">
