@@ -1,49 +1,53 @@
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const pageHeading = require("./src/_includes/shortcodes/pageHeading.js");
-const { JSDOM } = require("jsdom");
 
 //pass-through
 module.exports = function(eleventyConfig) {
+
+  // STYLE AND STATIC FILES
   eleventyConfig.addPassthroughCopy("src/assets/css/style.css");
   eleventyConfig.addPassthroughCopy("src/assets/css/tailwind.css");
-  eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/assets/icons");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
+
+  // IMAGES
+  eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/blog/_img");
+
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
+
+  // SHORTCODES
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addShortcode("pageHeading", pageHeading);
 
-//shortcodes - basically, a function
-eleventyConfig.addShortcode("pageHeading", pageHeading);
+  // SORTING
+  eleventyConfig.addShortcode("currentDate", (date = DateTime.now()) => {
+    return date;
+  });
 
+  eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  });
 
-//sorting
-eleventyConfig.addShortcode("currentDate", (date = DateTime.now()) => {
-	return date;
-})
-
-eleventyConfig.addFilter("postDate", (dateObj) => {
-	return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
-});
-  
-eleventyConfig.addCollection("page", function(collections) {
+  eleventyConfig.addCollection("page", function(collections) {
     return collections.getFilteredByTag("page").sort(function(a, b) {
       return a.data.order - b.data.order;
     });
   });
-  
-  
-eleventyConfig.addCollection("post", function (collectionApi) {
-  return collectionApi.getFilteredByTag("post").sort((a, b) => {
-    return b.date - a.date; // новые сверху
+
+  eleventyConfig.addCollection("post", function (collectionApi) {
+    return collectionApi.getFilteredByTag("post").sort((a, b) => {
+      return b.date - a.date;
+    });
   });
-});
 
+  eleventyConfig.addCollection("mocPosts", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/blog/*.md")
+      .filter(post => post.data.topics && post.data.topics.includes("MOC"));
+  });
 
-eleventyConfig.addNunjucksFilter("range", function(n) {
-  return [...Array(n).keys()];
-}); 
-
-  // Все уникальные топики
+  // ALL UNIQUE TOPICS
   eleventyConfig.addCollection("topicsList", (collection) => {
     const topics = new Set();
     collection.getAll().forEach(item => {
@@ -52,10 +56,11 @@ eleventyConfig.addNunjucksFilter("range", function(n) {
     return [...topics];
   });
 
-  // Посты по топикам
+  // POSTS GROUPED BY TOPIC
   eleventyConfig.addCollection("postsByTopic", (collection) => {
     const posts = collection.getFilteredByTag("post");
     const map = {};
+
     posts.forEach(post => {
       const topics = post.data.topics || [];
       topics.forEach(topic => {
@@ -63,42 +68,89 @@ eleventyConfig.addNunjucksFilter("range", function(n) {
         map[topic].push(post);
       });
     });
+
+    Object.keys(map).forEach(topic => {
+      map[topic].sort((a, b) => b.date - a.date);
+    });
+
     return map;
   });
-  
- // автоматические страницы топиков с пагинацией
-eleventyConfig.addCollection("topicPages", function(collectionApi) {
-  const posts = collectionApi.getFilteredByTag("post");
-  const topicsMap = {};
-  const pageSize = 5;
 
-  posts.forEach(post => {
-    const topics = post.data.topics || [];
-    topics.forEach(topic => {
-      if (!topicsMap[topic]) topicsMap[topic] = [];
-      topicsMap[topic].push(post);
-    });
-  });
+  // TOPIC PAGE PAGINATION
+  eleventyConfig.addCollection("topicPages", function(collectionApi) {
+    const posts = collectionApi.getFilteredByTag("post");
+    const topicsMap = {};
+    const pageSize = 5;
 
-  const topicPages = [];
-
-  Object.entries(topicsMap).forEach(([topic, postsForTopic]) => {
-    const pageCount = Math.ceil(postsForTopic.length / pageSize);
-    for (let i = 0; i < pageCount; i++) {
-      topicPages.push({
-        currentTopic: topic, // <- вот это добавляем
-        topic,
-        posts: postsForTopic.slice(i * pageSize, (i + 1) * pageSize),
-        pageNumber: i,
-        totalPages: pageCount,
-        permalink: `/blog/topic/${topic}/page/${i + 1}/`
+    posts.forEach(post => {
+      const topics = post.data.topics || [];
+      topics.forEach(topic => {
+        if (!topicsMap[topic]) topicsMap[topic] = [];
+        topicsMap[topic].push(post);
       });
-    }
+    });
+
+    const topicPages = [];
+
+    Object.entries(topicsMap).forEach(([topic, postsForTopic]) => {
+      postsForTopic.sort((a, b) => b.date - a.date);
+      const pageCount = Math.ceil(postsForTopic.length / pageSize);
+
+      for (let i = 0; i < pageCount; i++) {
+        topicPages.push({
+          currentTopic: topic,
+          topic,
+          posts: postsForTopic.slice(i * pageSize, (i + 1) * pageSize),
+          pageNumber: i,
+          totalPages: pageCount,
+          permalink: `/blog/topic/${topic}/page/${i + 1}/`
+        });
+      }
+    });
+
+    return topicPages;
   });
 
-  return topicPages;
-});
 
+  // -------------------------------------------------------------
+  // FIX IMAGE PATHS TRANSFORM – START
+  // Исправляет пути вида "assets/images/x.png" → "/assets/images/x.png"
+  // Работает только в итоговом HTML, не ломает Markdown, не ломает шорткод.
+  // -------------------------------------------------------------
+
+  eleventyConfig.addTransform("fixImagePathsForSite", function(content, outputPath) {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+
+    let fixed = content;
+
+    const clean = s => s.replace(/^[.\/]+/, "");
+
+    // Fix <img src="">
+    fixed = fixed.replace(/<img([^>]*?)src=["'](?!\/|https?:\/\/)([^"']+)["']([^>]*?)>/gi,
+      (m, b, src, a) => `<img${b}src="/${clean(src)}"${a}>`
+    );
+
+    // Fix <source srcset="">
+    fixed = fixed.replace(/<source([^>]*?)srcset=["']([^"']+)["']([^>]*?)>/gi,
+      (m, b, set, a) => {
+        const items = set.split(",").map(p => {
+          let parts = p.trim().split(" ");
+          let url = parts[0];
+          if (!url.startsWith("/") && !/^https?:\/\//.test(url)) {
+            url = "/" + clean(url);
+          }
+          parts[0] = url;
+          return parts.join(" ");
+        });
+        return `<source${b}srcset="${items.join(", ")}"${a}>`;
+      }
+    );
+
+    return fixed;
+  });
+
+  // FIX IMAGE PATHS TRANSFORM – END
+  // -------------------------------------------------------------
 
 
   return {
@@ -112,8 +164,11 @@ eleventyConfig.addCollection("topicPages", function(collectionApi) {
 };
 
 
+// -------------------------------------------------------------
+// IMAGE SHORTCODE — оставлен нетронутым
+// -------------------------------------------------------------
 async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp", "jpeg"]) {
-  let fullSrc = `./src${src}`; // путь из фронтматтера
+  let fullSrc = `./src${src}`;
   let metadata = await Image(fullSrc, {
     widths,
     formats,
@@ -121,18 +176,15 @@ async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp",
     outputDir: "./_site/images/"
   });
 
-  let lowRes = metadata.jpeg[0]; // самая маленькая jpeg-версия
-  let highRes = metadata.jpeg[metadata.jpeg.length - 1];
-
-  // определяем aspect ratio для контейнера
+  let lowRes = metadata.jpeg[0];
   const aspectRatio = (lowRes.width / lowRes.height).toFixed(4);
 
   return `
     <div class="blog-thumb" style="aspect-ratio: ${aspectRatio}; overflow: hidden; border-radius: 5px;">
       <picture>
         ${Object.values(metadata)
-          .map(formatArr => 
-            formatArr.map(img => 
+          .map(formatArr =>
+            formatArr.map(img =>
               `<source type="image/${img.format}" srcset="${img.srcset}" sizes="(max-width: 1200px) 100vw, 1200px">`
             ).join("")
           ).join("")}

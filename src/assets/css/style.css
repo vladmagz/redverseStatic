@@ -18,7 +18,6 @@
 
 html {
   scroll-behavior: smooth;
-  
 }
 
 body {
@@ -43,7 +42,72 @@ a:hover {
   transition: color 0.3s;
 }
 
+h1, h2, h3{
+  color: var(--dark-plain-text);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
+h1 { font-size: 2rem; font-weight: 900; }
+h2 { font-size: 1.5rem; font-weight: 800; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+
+.site-header {
+  width: 100%;          /* полностью по ширине */
+  background-color: var(--dark-link);
+  color: var(--dark-bg);
+  padding: 0rem .5rem;   /* отступы сверху/снизу и слева/справа */
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* выравнивание влево */
+  gap: .1rem;                /* расстояние между ссылками */
+  /* убираем max-width и margin auto */
+}
+
+.icon-nav img {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.nav-link {
+  color: var(--dark-bg);
+  text-decoration: none;
+  font-weight: 900;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--dark-link-hover);
+}
+
+@font-face {
+  font-family: "Rockybilly";
+  src: url("/assets/fonts/Rockybilly.woff2") format("woff2"),
+       url("/assets/fonts/Rockybilly.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.welcome-block {
+  font-family: Rockybilly;
+  color: var(--dark-link);
+  margin-top: 1rem;
+}
+.welcome-small {
+  font-size: 1rem;
+}
+
+.welcome-big {
+  margin-top: 4.3rem;
+  font-size: 6rem;
+}
 
 .icon-row {	
   margin-top: 1rem ;
@@ -55,7 +119,7 @@ a:hover {
 .icon {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: right;
   width: 3rem;
   height: 3rem;
 }
@@ -308,40 +372,53 @@ footer {
   font-weight: 700;
 }
 .moc-gallery {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .moc-card {
-  position:relative;
-  overflow:hidden;
-  border-radius:5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;   /* квадрат */
+  display: block;
 }
 
-.moc-card img {
-  width:100%;
-  height:auto;
-  display:block;
+.moc-card .blog-thumb {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1 !important; /* принудительно квадрат */
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.moc-card .blog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* обрезка по бокам */
+  object-position: center;
+  display: block;
 }
 
 .moc-title {
-  position:absolute;
-  left:0;
-  bottom:-100%;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  color:white;
-  font-size:14px;
-  display:flex;
-  align-items:center;
-  padding:10px;
-  transition:bottom 0.25s;
-  border-radius:0 0 5px 5px;
-  overflow-wrap:break-word;
-  word-break:break-word;
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: bottom 0.25s;
+  border-radius: 0 0 5px 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .moc-card:hover .moc-title {
-  bottom:0;
+  bottom: 0;
 }
+

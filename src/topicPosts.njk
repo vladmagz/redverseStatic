@@ -11,6 +11,8 @@ eleventyComputed:
 
 <h1>Blog</h1><br>
 
+<p> {{topicPage.topic}} </p>
+
 <div class="topics-panel">
   <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>
   {% for topic in collections.topicsList %}
@@ -18,11 +20,10 @@ eleventyComputed:
   {% endfor %}
 </div>
 
-
 <ul class='blog-list'>
   {% for post in topicPage.posts %}
   <li class="blog-post">
-    <a href="{{ post.url }}" class="blog-list-item">
+    <a href="{{ post.url }}?topic={{ currentTopic }}" class="blog-list-item">
       <div class="blog-thumb">
         {% if post.data.hero %}
           {% image post.data.hero, post.data.title %}
@@ -42,6 +43,7 @@ eleventyComputed:
 
 {% if topicPage.totalPages > 1 %}
 <nav class="pagination">
+
   {% if topicPage.pageNumber > 0 %}
     <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber }}/">← Назад</a>
   {% endif %}
@@ -51,5 +53,6 @@ eleventyComputed:
   {% if topicPage.pageNumber + 1 < topicPage.totalPages %}
     <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber + 2 }}/">Вперед →</a>
   {% endif %}
+
 </nav>
 {% endif %}

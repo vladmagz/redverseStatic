@@ -1,0 +1,202 @@
+{
+  "main": {
+    "id": "eff80b9687f15877",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f3196e5a225322e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aeb51b4b82a64ee6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "shitpost.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "shitpost"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "83e887e57a21f1eb",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2338acf347e68e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "72ff7d7f3ecbe059",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b2d6621118c77660",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "636d98a5a76ccbe2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e26f3f405f7b7a2c",
+    "type": "split",
+    "children": [
+      {
+        "id": "39f641578a57708e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "896346395805d7bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "webring - Copy (4).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for webring - Copy (4)"
+            }
+          },
+          {
+            "id": "c8cd8b2a60ff06fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "webring - Copy (4).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from webring - Copy (4)"
+            }
+          },
+          {
+            "id": "386d09c323318416",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cb0ff06a8211ce8d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "webring - Copy (4).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of webring - Copy (4)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "72ff7d7f3ecbe059",
+  "lastOpenFiles": [
+    "webring.md",
+    "firstpost.md",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Untitled.md",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_1 6.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_1 5.png",
+    "webring - Copy (2).md",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_2 4.png",
+    "_img/firstpost/file-20251129231751080.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_2 3.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_1 4.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_1 3.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_1 2.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_2 2.png",
+    "_img/firstpost/MRM_SweetCar_139p8x15x7_2 1.png",
+    "_img/firstpost",
+    "_img",
+    "_blogImgs",
+    "New folder",
+    "webring - Copy (4).md",
+    "Untitled.canvas",
+    "shitpost.md",
+    "webring - Copy (8).md",
+    "webring - Copy (6).md",
+    "webring - Copy (3).md",
+    "webring - Copy.md"
+  ]
+}

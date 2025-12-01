@@ -4,104 +4,127 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@300;400;500;600&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">  
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet"> 
-    <title>Redverse - First Post  </title>
+    <title>Redverse - This site was created today  </title>
     <meta name="description" content="
       
-        My first post
+        Commemorative first post on this website
       
     "/>
+	<link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
    <nav>
-    <header class="bg-black text-gray-50 py-4">
-<nav class="max-w-2xl mx-auto text-lg space-x-6">
-	
-  
-    <a href="/"
-       
-       class="hover:text-sky-400">
-       Home
-    </a>
-  
-
-  
-
-  
-    <a href="/gallery/"
-       
-       class="hover:text-sky-400">
-       Creations
-    </a>
-  
-
-  
-    <a href="/blog/"
-       
-       class="hover:text-sky-400">
-       Blog
-    </a>
-  
-
-  
-    <a href="/about/"
-       
-       class="hover:text-sky-400">
-       About
-    </a>
-  
-
-</nav>
-
+    <header class="site-header">
+  <nav class="site-nav">
+    <div class="icon-nav">
+      <img src="/assets/images/Avatar_face.svg" alt="Avatar">
+    </div>
+    
+      
+        <a href="/"
+           
+           class="nav-link">
+          HOME
+        </a>
+      
+    
+      
+    
+      
+        <a href="/gallery/"
+           
+           class="nav-link">
+          CREATIONS
+        </a>
+      
+    
+      
+        <a href="/blog/"
+           
+           class="nav-link">
+          BLOG
+        </a>
+      
+    
+      
+        <a href="/about/"
+           
+           class="nav-link">
+          ABOUT
+        </a>
+      
+    
+  </nav>
 </header>
+
    </nav>
    <main class="max-w-3xl mx-auto py-12 min-h-screen">
     
 <div class="blog-post-content">
     <h1>First Post</h1>
-<p>Here's my first blog msg
-thats a moc</p>
+<p><img src="/assets/images/Capture1.PNG" alt="">
+Hey there!</p>
+<p>Welcome to Redverse - my website!<br><br>
+My name is Vlad, but I also go by the nickname Red. This is a project of mine to create a long-lasting reflection of everything that is creative in me.<br><br>
+Lately I've experienced a lot of disappointment in social media and creative sharing hubs. I've always been noticing how websites aren't meant to last forever and it especially applies to social networks. It's only a matter of time for your digital creative footprint to disappear.<br>
+Feeling the lack of control over the outlets I've been posting to (instagram, flickr, twitter) and their limitations (heavy image compression, restrictive layouts) I've decided to write my own simple website. This is the basis for showing my creative projects as well as the sides of my life that affect them.<br><br>
+This website is written by me, from the text in blog posts to the source code itself. I took this as an opportunity to learn html, css and javascript and now i have a very flexible instrument in my hands. <br><br>
+Hope you'll enjoy the content of this site, cheers!</p>
 
 </div>
 
-<!-- Счётчик просмотров -->
-<div id="post-views" data-slug="firstpost">
-    Views: <span>0</span>
-</div>
-<script type="module" src="/js/views.js"></script>
-
-<!-- Пагинация -->
-
-
+<div id="back-link">
+  
+  
 
 
 
 
 <div class="paginate">
   
-    <a class="paginate__prev" href="/blog/webring/">
-      <span class="paginate__label">Previous:</span>
-      <span class="paginate__title">Webring</span>
+
+  
+    <a class="paginate__next" href="/blog/SensumRift/">
+      <span class="paginate__label">Next:</span>
+      <span class="paginate__title">Sensum Rift</span>
     </a>
   
-
-  
 </div>
 
-
-<br/><hr/><br/>
-
-<div>
-    <a href="/blog">Blog Home</a>
+  <br/><hr/><br/>
+  <a href="/blog">Blog Home</a>
 </div>
+
+<script>
+  const params = new URLSearchParams(window.location.search)
+  const gallery = params.get('gallery')
+  const backLinkContainer = document.getElementById("back-link")
+  if (gallery === "true") {
+    backLinkContainer.innerHTML = `<a href="/gallery/">Back to MOC Gallery</a>`
+  }
+</script>
+
+
+<script>
+  // Вытаскиваем topic из query
+  const params = new URLSearchParams(window.location.search)
+  const topic = params.get('topic')
+  if (topic) {
+    // Подставляем topic в ссылки пагинации
+    document.querySelectorAll(".paginate a").forEach(a => {
+      const url = new URL(a.href, window.location.origin)
+      url.searchParams.set("topic", topic)
+      a.href = url.toString()
+    })
+  }
+</script>
+
+
+
 
    </main>
    <footer>

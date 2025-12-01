@@ -6,18 +6,36 @@ layout: base
     {{ content | safe }}
 </div>
 
-<!-- Счётчик просмотров -->
-<div id="post-views" data-slug="{{ page.fileSlug }}">
-    Views: <span>0</span>
+<div id="back-link">
+  {% set postCollection = page.postCollection %}
+  {% include "partials/_paginate.njk" %}
+  <br/><hr/><br/>
+  <a href="/blog">Blog Home</a>
 </div>
-<script type="module" src="/js/views.js"></script>
 
-<!-- Пагинация -->
-{% set postCollection = page.postCollection %}
-{% include "partials/_paginate.njk" %}
+<script>
+  const params = new URLSearchParams(window.location.search)
+  const gallery = params.get('gallery')
+  const backLinkContainer = document.getElementById("back-link")
+  if (gallery === "true") {
+    backLinkContainer.innerHTML = `<a href="/gallery/">Back to MOC Gallery</a>`
+  }
+</script>
 
-<br/><hr/><br/>
 
-<div>
-    <a href="/blog">Blog Home</a>
-</div>
+<script>
+  // Вытаскиваем topic из query
+  const params = new URLSearchParams(window.location.search)
+  const topic = params.get('topic')
+  if (topic) {
+    // Подставляем topic в ссылки пагинации
+    document.querySelectorAll(".paginate a").forEach(a => {
+      const url = new URL(a.href, window.location.origin)
+      url.searchParams.set("topic", topic)
+      a.href = url.toString()
+    })
+  }
+</script>
+
+
+

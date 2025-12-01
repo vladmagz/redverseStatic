@@ -1,6 +1,6 @@
 ---
 layout: base
-title: About
+title: ABOUT
 tags: page
 order: 4
 ---

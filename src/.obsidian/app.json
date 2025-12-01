@@ -1,0 +1,10 @@
+{
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "assets/images",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "blog",
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "absolute",
+  "strictLineBreaks": true,
+  "promptDelete": false
+}

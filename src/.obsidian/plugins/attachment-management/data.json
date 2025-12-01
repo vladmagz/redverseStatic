@@ -1,0 +1,60 @@
+{
+  "language": "en",
+  "attachPath": {
+    "attachmentRoot": "assets/images/${notename}",
+    "saveAttE": "obsFolder",
+    "attachmentPath": "${notename}",
+    "attachFormat": "${originalname}",
+    "type": "GLOBAL"
+  },
+  "dateFormat": "YYYYMMDDHHmmssSSS",
+  "excludeExtensionPattern": "",
+  "autoRenameAttachment": false,
+  "excludedPaths": "",
+  "excludePathsArray": [],
+  "excludeSubpaths": false,
+  "originalNameStorage": [
+    {
+      "n": "MRM_SweetCar_139p8x15x7_1",
+      "md5": "0329C474115531E7CD7D384EB3DCE8F9"
+    },
+    {
+      "n": "MRM_SweetCar_139p8x15x7_2",
+      "md5": "AA532002E6113B90BCB6666797057798"
+    },
+    {
+      "n": "MRM_SweetCar_139p8x15x7_3",
+      "md5": "9E31F7C6333925CF3932F2A7D42B0469"
+    },
+    {
+      "n": "MRM_SweetCar_139p8x15x7_4",
+      "md5": "6635D2D666B134309D361A2812987F45"
+    },
+    {
+      "n": "1",
+      "md5": "4B5EAF2E4C5E605AC79ABB79D3C5AAC7"
+    },
+    {
+      "n": "1",
+      "md5": "5300EA096584971115E3B8AC104C92AE"
+    },
+    {
+      "n": "0",
+      "md5": "CF8D7CF54963293AC1757F6F73FA20C7"
+    },
+    {
+      "n": "1",
+      "md5": "3201AD43EB4DE8EDF91F9EB716E771C4"
+    },
+    {
+      "n": "2",
+      "md5": "D37539DF6D4E44AD7095ED1057236243"
+    },
+    {
+      "n": "3",
+      "md5": "C7E564B6A3559235EF5AD6B7D104DD6C"
+    }
+  ],
+  "overridePath": {},
+  "disableNotification": false
+}
