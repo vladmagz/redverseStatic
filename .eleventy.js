@@ -1,7 +1,7 @@
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const pageHeading = require("./src/_includes/shortcodes/pageHeading.js");
-
+const querystring = require("querystring");
 //pass-through
 module.exports = function(eleventyConfig) {
 
@@ -26,6 +26,10 @@ module.exports = function(eleventyConfig) {
     return date;
   });
 
+  eleventyConfig.addFilter("urlencode", function(str) {
+    return encodeURIComponent(str)
+  });
+  
   eleventyConfig.addFilter("postDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });

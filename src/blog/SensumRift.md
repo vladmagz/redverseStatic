@@ -6,7 +6,6 @@ hero: /assets/images/SensumRift/0.jpg
 topics:
   - MOC
 ---
-
 ![](assets/images/SensumRift/0.jpg)
 "In the year 2037, the new frontier of virtual reality was opened..."<br>
 

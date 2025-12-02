@@ -11,8 +11,6 @@ eleventyComputed:
 
 <h1>Blog</h1><br>
 
-<p> {{topicPage.topic}} </p>
-
 <div class="topics-panel">
   <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>
   {% for topic in collections.topicsList %}
@@ -41,18 +39,30 @@ eleventyComputed:
   {% endfor %}
 </ul>
 
-{% if topicPage.totalPages > 1 %}
-<nav class="pagination">
 
+<nav class="blog-pagination">
+<ul>
+{% if topicPage.totalPages > 1 %}
   {% if topicPage.pageNumber > 0 %}
-    <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber }}/">← Назад</a>
+    <li><a href="/blog/topic/{{ topicPage.topic | urlencode }}/page/{{ topicPage.pageNumber }}/">« Newer</a></li>
   {% endif %}
 
-  <span>Page {{ topicPage.pageNumber + 1 }} of {{ topicPage.totalPages }}</span>
+ {% for i in range(0, topicPage.totalPages) %}
+      {% if i == topicPage.pageNumber %}
+        <li><strong>{{ i + 1 }}</strong></li>
+      {% else %}
+        <li>
+          <a href="/blog/topic/{{ topicPage.topic | urlencode }}/page/{{ i + 1 }}/">
+            {{ i + 1 }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
 
   {% if topicPage.pageNumber + 1 < topicPage.totalPages %}
-    <a href="/blog/topic/{{ topicPage.topic | urlEncode }}/page/{{ topicPage.pageNumber + 2 }}/">Вперед →</a>
+    <li><a href="/blog/topic/{{ topicPage.topic | urlencode }}/page/{{ topicPage.pageNumber + 2 }}/">Older »</a></li>
   {% endif %}
-
-</nav>
 {% endif %}
+</ul>
+</nav>
+
