@@ -2,7 +2,7 @@
 title: Sensum Rift
 description: My first attempt at making a substantial sidebuild to the main figurine
 date: 2016-04-23
-hero: /assets/images/SensumRift/0.jpg
+hero: /assets/images/SensumRift/1.jpg
 topics:
   - MOC
 ---

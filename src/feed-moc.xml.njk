@@ -1,0 +1,26 @@
+---
+permalink: feed-moc.xml
+eleventyExcludeFromCollections: true
+---
+<rss version="2.0">
+  <channel>
+    <title>Redverse Blog</title>
+    <link>https://redverse.netlify.app</link>
+    <description>Updates</description>
+
+    <lastBuildDate>{{ collections.mocPosts[0].date | rssDate if collections.mocPosts | length > 0 }}</lastBuildDate>
+
+  {% for post in collections.mocPosts %}
+  <item>
+    <title>{{ post.data.title | xmlEscape }}</title>
+    <link>https://redverse.netlify.app{{ post.url }}</link>
+    {% if post.data.description %}
+    <description>{{ post.data.description | xmlEscape }}</description>
+    {% endif %}
+    <pubDate>{{ post.date | rssDate }}</pubDate>
+    <guid isPermaLink="true">https://redverse.netlify.app{{ post.url }}</guid>
+  </item>
+  {% endfor %}
+
+  </channel>
+ </rss>

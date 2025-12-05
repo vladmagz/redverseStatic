@@ -46,10 +46,12 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  eleventyConfig.addCollection("mocPosts", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/blog/*.md")
-      .filter(post => post.data.topics && post.data.topics.includes("MOC"));
-  });
+eleventyConfig.addCollection("mocPosts", function (collectionApi) {
+  return collectionApi.getFilteredByTag("post")
+    .filter(post => post.data.topics && post.data.topics.includes("MOC"))
+    .sort((a, b) => b.date - a.date);
+});
+
 
   // ALL UNIQUE TOPICS
   eleventyConfig.addCollection("topicsList", (collection) => {
@@ -114,6 +116,27 @@ module.exports = function(eleventyConfig) {
 
     return topicPages;
   });
+  
+  eleventyConfig.addFilter("rssDate", dateObj => {
+    return DateTime.fromJSDate(dateObj).toRFC2822()
+  });
+
+  eleventyConfig.addFilter("xmlEscape", str => {
+    if(!str) return ""
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&apos;")
+  });
+  
+  eleventyConfig.setTemplateFormats([
+    "html",
+    "md",
+    "njk",
+    "xml"
+  ]);
 
 
   // -------------------------------------------------------------

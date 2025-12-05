@@ -21,6 +21,7 @@ permalink: "/blog{% if currentTopic %}/topic/{{ currentTopic | slugify }}{% endi
   {% for topic in collections.topicsList %}
     <a href="/blog/topic/{{ topic | slugify }}/page/1/" class="topic-btn {% if topic == currentTopic %}active{% endif %}">{{ topic }}</a>
   {% endfor %}
+  <a href="/feed.xml" class="sub-button">RSS Sub</a>
 </div>
 
 

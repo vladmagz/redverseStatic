@@ -6,8 +6,7 @@
     {% for item in collections.page %}
       {% if not item.data.pagination %}
         <a href="{{ item.url }}"
-           {% if item.url == page.url %}aria-current="page" data-state="active"{% endif %}
-           class="nav-link">
+           {% if item.url == page.url %}aria-current="page" data-state="active"{% endif %} class="nav-link">
           {{ item.data.title }}
         </a>
       {% endif %}

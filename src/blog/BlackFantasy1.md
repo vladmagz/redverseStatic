@@ -2,7 +2,7 @@
 title: Corruption
 description: Saw the bionicle collab posts nearby? This thing was made on the same day we took
 date: 2016-05-18
-hero: /assets/images/BlackFantasy1/1.jpg
+hero: /assets/images/BlackFantasy1/3.jpg
 topics:
   - MOC
 ---

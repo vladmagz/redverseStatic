@@ -23,7 +23,6 @@ html {
 body {
   font-family: "Sora", sans-serif;
   line-height: 1.5;
-
   background-color: var(--dark-bg);
   color: var(--dark-plain-text);
 }
@@ -36,10 +35,12 @@ a {
   text-decoration: none;
   color: var(--dark-link);
   transition: color 2s;
+  font-weight: 700;
 }
 a:hover {
   color: var(--dark-link-hover);
   transition: color 0.3s;
+  text-decoration: underline;
 }
 
 h1, h2, h3{
@@ -52,44 +53,6 @@ h1 { font-size: 2rem; font-weight: 900; }
 h2 { font-size: 1.5rem; font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 700; }
 
-.site-header {
-  width: 100%;          /* полностью по ширине */
-  background-color: var(--dark-link);
-  color: var(--dark-bg);
-  padding: 0rem .5rem;   /* отступы сверху/снизу и слева/справа */
-  box-sizing: border-box;
-  font-size: 1.1rem;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* выравнивание влево */
-  gap: .1rem;                /* расстояние между ссылками */
-  /* убираем max-width и margin auto */
-}
-
-.icon-nav {
-  flex-shrink: 0;
-}
-
-.icon-nav img {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-}
-
-
-.nav-link {
-  color: var(--dark-bg);
-  text-decoration: none;
-  font-weight: 900;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: var(--dark-link-hover);
-}
 
 @font-face {
   font-family: "Rockybilly";
@@ -100,22 +63,46 @@ h3 { font-size: 1.2rem; font-weight: 700; }
   font-display: swap;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--dark-link);
+  color: var(--dark-bg);
+}
+
+nav > a {
+  display: block;
+  padding: 1rem ;
+  font-weight: 700; /* жирный */
+  color: var(--dark-bg); 
+}
+
+
 .welcome-block {
   font-family: Rockybilly;
   color: var(--dark-link);
   margin-top: 1rem;
-  --scale: min(14vw, 6rem); /* ограничиваем максимальный размер */
+  text-wrap: nowrap; /* запрещаем перенос */
+  --scale: clamp(2rem, 12vw, 5rem); /* умнее чем min() */
 }
+
+.welcome-big {
+  font-size: var(--scale);
+  line-height: 1.5;
+  margin-top: calc(var(--scale)*0.7);
+  text-align: center;
+  padding: 0rem 0;
+  margin-right: 1rem;
+}
+
 .welcome-small {
   font-size: calc(var(--scale) / 6);
   line-height: 1;
 }
 
-.welcome-big {
-  font-size: calc(var(--scale)); 
-  margin-top: calc(var(--scale)*1.1);
-  line-height: 0.9;
-}
+
 
 .icon-row {	
   margin-top: 1rem ;
@@ -147,20 +134,58 @@ img {
   display: block;
 }
 
-nav {
+.site-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
   background-color: var(--dark-link);
   color: var(--dark-bg);
+
+  justify-content: flex-start;
+  gap: clamp(1rem, 2vw, 1rem);
+
+  flex-wrap: wrap; /* вот это спасает мобилку */
 }
 
-nav > a {
+
+.site-nav > a {
   display: block;
-  padding: 1rem ;
+  padding: .1rem ;
   font-weight: 700; /* жирный */
   color: var(--dark-bg); 
+}
+
+
+.site-header {
+  width: 100%;          /* полностью по ширине */
+  display: flex;
+  background-color: var(--dark-link);
+  color: var(--dark-bg);
+  padding: 0rem .5rem;   /* отступы сверху/снизу и слева/справа */
+  box-sizing: border-box;
+  font-size: clamp(.6rem, 2vw, 1rem);
+  overflow: hidden;
+}
+
+.icon-nav {
+  flex-shrink: 0;
+}
+
+.icon-nav img {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-link {
+  color: var(--dark-bg);
+  text-decoration: none;
+  font-weight: 900;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--dark-link-hover);
 }
 
 main {
@@ -168,6 +193,16 @@ main {
   margin: 0 auto;
   padding:  2rem;
   min-height: calc(100vh - 32px);
+
+  /* плавный вход */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 0.8s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 main > h1 {
@@ -263,12 +298,15 @@ footer {
   border: 3px solid var(--dark-border);
   border-radius: 6px;
   box-shadow: 2px 2px 10px   rgb(0, 0, 0, .1);
-  
-  
   max-width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;  /* для старых браузеров */
   word-break: break-word;
+  transition: border 0.3s ease;
+}
+.blog-list-item:hover {
+  border: 3px solid var(--dark-link-hover);
+  transition: border 0.3s ease;
 }
 
 .blog-list-item + .blog-list-item{
@@ -379,6 +417,32 @@ footer {
   color: var(--dark-link-hover);
   font-weight: 700;
 }
+.sub-button {
+  margin-left: auto;
+   display: inline-block;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--dark-link);
+  color: var(--dark-bg);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.sub-button:hover {
+  background: var(--dark-link-hover);
+  color: var(--dark-bg);
+  text-decoration: none;
+}
+.topics-header {
+  display: flex;
+  align-items: center;  /* выравнивание по вертикали */
+  gap: 12px;            /* расстояние между заголовком и кнопкой */
+}
+
+.topics-header h1 {
+  margin: 0;            /* убираем стандартный margin для h1 */
+}
+
 .moc-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -416,7 +480,7 @@ footer {
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   padding: 10px;
@@ -424,6 +488,7 @@ footer {
   border-radius: 0 0 5px 5px;
   overflow-wrap: break-word;
   word-break: break-word;
+  font-weight: 300;
 }
 
 .moc-card:hover .moc-title {
