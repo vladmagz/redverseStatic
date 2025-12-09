@@ -2,8 +2,7 @@
 layout: base
 title: Blog
 description: This is the blog home
-tags: page
-order: 2
+order: 3
 
 pagination:
   data: collections.post
@@ -47,24 +46,4 @@ permalink: "/blog{% if currentTopic %}/topic/{{ currentTopic | slugify }}{% endi
   {% endfor %}
 </ul>
 
-{% if pagination.pages | length > 1 %}
-<nav class="blog-pagination">
-  <ul>
-    {% if pagination.pageNumber > 0 %}
-      <li><a href="{{ pagination.href.previous }}">« Newer</a></li>
-    {% endif %}
-
-    {% for i in range(0, pagination.pages | length) %}
-      {% if i == pagination.pageNumber %}
-        <li><strong>{{ i + 1 }}</strong></li>
-      {% else %}
-        <li><a href="{{ pagination.hrefs[i] }}">{{ i + 1 }}</a></li>
-      {% endif %}
-    {% endfor %}
-
-    {% if pagination.pageNumber < pagination.pages | length - 1 %}
-      <li><a href="{{ pagination.href.next }}">Older »</a></li>
-    {% endif %}
-  </ul>
-</nav>
-{% endif %}
+{% include "partials/_blogPaginate.njk" %}

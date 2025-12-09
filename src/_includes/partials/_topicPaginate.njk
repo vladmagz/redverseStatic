@@ -1,0 +1,66 @@
+<nav class="blog-pagination">
+<ul>
+
+{% if topicPage.totalPages > 1 %}
+
+  {# Удобные переменные #}
+  {% set current = topicPage.pageNumber %}
+  {% set last = topicPage.totalPages - 1 %}
+  {% set base = "/blog/topic/" + (topicPage.topic | urlencode) + "/page/" %}
+
+  {# Функция рендера страницы #}
+  {% macro pageItem(i) %}
+    {% if i == current %}
+      <li><strong>{{ i + 1 }}</strong></li>
+    {% else %}
+      <li><a href="{{ base }}{{ i + 1 }}/">{{ i + 1 }}</a></li>
+    {% endif %}
+  {% endmacro %}
+
+  {# Кнопка Newer #}
+  {% if current > 0 %}
+    <li><a href="{{ base }}{{ current }}/">« Newer</a></li>
+  {% endif %}
+
+  {# Первая страница #}
+  {{ pageItem(0) }}
+
+  {# Разрыв слева #}
+  {% if current - 1 > 1 %}
+    <li class="blog-pagination-dots">…</li>
+  {% endif %}
+
+  {# Сосед слева #}
+  {% if current - 1 > 0 %}
+    {{ pageItem(current - 1) }}
+  {% endif %}
+
+  {# Текущая, если она не первая и не последняя #}
+  {% if current != 0 and current != last %}
+    {{ pageItem(current) }}
+  {% endif %}
+
+  {# Сосед справа #}
+  {% if current + 1 < last %}
+    {{ pageItem(current + 1) }}
+  {% endif %}
+
+  {# Разрыв справа #}
+  {% if current + 2 < last %}
+    <li class="blog-pagination-dots">…</li>
+  {% endif %}
+
+  {# Последняя страница #}
+  {% if last > 0 %}
+    {{ pageItem(last) }}
+  {% endif %}
+
+  {# Кнопка Older #}
+  {% if current < last %}
+    <li><a href="{{ base }}{{ current + 2 }}/">Older »</a></li>
+  {% endif %}
+
+{% endif %}
+
+</ul>
+</nav>

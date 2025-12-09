@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!--если мобильная версия ниоч, то строку ниже закомментитть -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,8 +34,6 @@
       
     
       
-    
-      
         <a href="/gallery/"
             class="nav-link">
           CREATIONS
@@ -49,21 +48,46 @@
       
     
       
-        <a href="/about/"
-           aria-current="page" data-state="active" class="nav-link">
-          ABOUT
-        </a>
+    
       
     
+	
+	<div class="dropdown">
+  <span class="nav-link">MORE▾</span>
+  <div class="dropdown-content">
+    
+      
+    
+      
+    
+      
+    
+      
+        <a href="/instructions/">INSTRUCTIONS</a>
+      
+    
+      
+        <a href="/about/">ABOUT</a>
+      
+    
+  </div>
+</div>
+
+	
   </nav>
 </header>
 
    </nav>
    <main class="max-w-3xl mx-auto py-12 min-h-screen">
     <h1>About Page</h1>
+<div class="img-inline left">
+  <img src="/assets/images/Avatar_face.svg">
+</div>
+<div class=blog-list-item>
 <h3>Short Bio</h3>
-<p>I am a product designer, Lego builder and a lot other things I want to become but can't call myself that yet. I'm also a human!
+<p>My name is Vlad and I am a product designer, Lego builder and a lot other things I want to become but can't call myself that yet. I'm also a human! <br>
 I usually post my creations on social media but none of the big sites gives me all the features I need. That's why this site exists! I've created it so I can share my stuff with you in a way I'd prefer.</p>
+</div>
 
    </main>
    <footer>

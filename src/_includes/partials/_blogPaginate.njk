@@ -1,0 +1,62 @@
+{% if pagination.pages | length > 1 %}
+<nav class="blog-pagination">
+  <ul>
+
+    {# Кнопка "Newer" #}
+    {% if pagination.pageNumber > 0 %}
+      <li><a href="{{ pagination.href.previous }}">« Newer</a></li>
+    {% endif %}
+
+    {# Удобные переменные #}
+    {% set current = pagination.pageNumber %}
+    {% set last = pagination.pages | length - 1 %}
+
+    {# Функция для вывода пункта #}
+    {% macro pageItem(i) %}
+      {% if i == current %}
+        <li><strong>{{ i + 1 }}</strong></li>
+      {% else %}
+        <li><a href="{{ pagination.hrefs[i] }}">{{ i + 1 }}</a></li>
+      {% endif %}
+    {% endmacro %}
+
+    {# Всегда показываем первую страницу #}
+    {{ pageItem(0) }}
+
+    {# Если между 1 и текущей есть дыра #}
+    {% if current - 1 > 1 %}
+      <li class="blog-pagination-dots">…</li>
+    {% endif %}
+
+    {# Страница слева, если она не первая #}
+    {% if current - 1 > 0 %}
+      {{ pageItem(current - 1) }}
+    {% endif %}
+
+    {# Текущая страница #}
+    {% if current != 0 and current != last %}
+      {{ pageItem(current) }}
+    {% endif %}
+
+    {# Страница справа, если она не последняя #}
+    {% if current + 1 < last %}
+      {{ pageItem(current + 1) }}
+    {% endif %}
+
+    {# Если между текущей группой и последней есть дыра #}
+    {% if current + 2 < last %}
+      <li class="blog-pagination-dots">…</li>
+    {% endif %}
+
+    {# Всегда показываем последнюю страницу #}
+    {% if last > 0 %}
+      {{ pageItem(last) }}
+    {% endif %}
+
+    {# Кнопка "Older" #}
+    {% if pagination.pageNumber < last %}
+      <li><a href="{{ pagination.href.next }}">Older »</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}

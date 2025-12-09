@@ -4,12 +4,25 @@
       <img src="/assets/images/Avatar_face.svg" alt="Avatar">
     </div>
     {% for item in collections.page %}
-      {% if not item.data.pagination %}
+      {% if not item.data.pagination and item.data.order <= 3%}
         <a href="{{ item.url }}"
            {% if item.url == page.url %}aria-current="page" data-state="active"{% endif %} class="nav-link">
           {{ item.data.title }}
         </a>
       {% endif %}
     {% endfor %}
+	
+	<div class="dropdown">
+  <span class="nav-link">MORE▾</span>
+  <div class="dropdown-content">
+    {% for item in collections.page %}
+      {% if item.data.order > 3 %}
+        <a href="{{ item.url }}">{{ item.data.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+	
   </nav>
 </header>
