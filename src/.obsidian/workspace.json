@@ -4,49 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "7d9b7f59fc1e6e7e",
+        "id": "d36e327aaffdd5f4",
         "type": "tabs",
         "children": [
           {
-            "id": "dd5de7ba5bf056bf",
+            "id": "898d67517b0f34e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/Muaka.md",
+                "file": "blog/Dashou.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Muaka"
+              "title": "Dashou"
             }
           },
           {
-            "id": "dc75550a11dfff81",
+            "id": "439d95af872f17be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/HollowKnight5.md",
+                "file": "blog/PabCrab.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HollowKnight5"
+              "title": "PabCrab"
             }
           },
           {
-            "id": "4bfc55b986f63973",
+            "id": "01abeaf4efb560d7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/HollowKnight4.md",
+                "file": "blog/LizardBrute.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HollowKnight4"
+              "title": "LizardBrute"
             }
           }
         ],
@@ -212,53 +212,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "4bfc55b986f63973",
+  "active": "01abeaf4efb560d7",
   "lastOpenFiles": [
-    "assets/images/HollowKnight4/Pasted image 20251209021914.png",
-    "assets/images/HollowKnight4/Pasted image 20251209021854.png",
-    "assets/images/HollowKnight4/Pasted image 20251209021728.png",
-    "assets/images/HollowKnight4",
-    "assets/images/HollowKnight4/1.png",
-    "blog/HollowKnight5.md",
-    "blog/HollowKnight4.md",
-    "assets/images/HollowKnight5/3.png",
-    "assets/images/HollowKnight5/2.png",
-    "assets/images/HollowKnight5",
-    "assets/images/HollowKnight5/1.png",
-    "blog/Muaka.md",
-    "assets/images/Muaka/17107478147_5b9f98f81f_o.jpg",
-    "assets/images/Muaka/16692464394_555017f511_o.jpg",
-    "assets/images/Muaka/3.png",
-    "assets/images/Muaka/2.png",
-    "assets/images/Muaka",
-    "blog/Rahkshi3.md",
-    "blog/Calavera.md",
-    "blog/Rahkshi2.md",
-    "blog/Netzach.md",
-    "obsidianTemplates/post_template.md",
-    "assets/images/Rahkshi3",
-    "assets/images/Netzach",
-    "assets/images/Rahkshi2",
-    "assets/images/Calavera",
-    "blog/Witch.md",
-    "blog/Goblin.md",
-    "blog/LizardSpearman.md",
-    "blog/54686520536176696f72.md",
-    "blog/Robertson.md",
-    "blog/Millenia.md",
-    "blog/Heating.md",
-    "blog/firstpost.md",
     "blog/5061756c.md",
-    "blog/BlackFantasy2.md",
-    "assets/images/BlackFantasy2",
-    "blog/BlackFantasy1.md",
-    "assets/images/Heating",
-    "assets/images/Millenia",
-    "blog/Migraine.md",
+    "blog/().md",
+    "blog/LizardBrute.md",
+    "assets/images/LizardBrute/1.png",
+    "assets/images/LizardBrute/2.png",
+    "assets/images/LizardBrute",
+    "assets/images/LizardBrute/0.png",
+    "blog/PabCrab.md",
+    "assets/images/PabCrab",
+    "assets/images/PabCrab/1.png",
+    "blog/Dashou.md",
+    "assets/images/Dashou",
+    "assets/images/Dashou/1.png",
+    "blog/Brutaka.md",
+    "blog/Heretic.md",
+    "assets/images/Heretic",
+    "assets/images/Heretic/1.png",
+    "assets/images/Brutaka/3.png",
+    "assets/images/Brutaka/4.png",
+    "assets/images/Brutaka/2.png",
+    "assets/images/Brutaka",
+    "assets/images/Brutaka/title.png",
+    "blog/RoboriderDust.md",
+    "blog/BohrokNui.md",
+    "blog/Kazma.md",
+    "assets/images/RoboriderDust",
+    "assets/images/BohrokNui",
+    "assets/images/Kazma",
+    "blog/55736275.md",
+    "assets/images/55736275",
+    "blog/Monke.md",
+    "assets/images/Monke",
+    "blog/Aaralyn.md",
+    "blog/DreamStealer.md",
+    "blog/Venus.md",
+    "blog/Pripyat1986.md",
+    "blog/K9.md",
+    "blog/Flairy.md",
+    "blog/Quarantine.md",
+    "blog/X-PL09.md",
+    "blog/firstpost.md",
+    "blog/Witch.md",
+    "blog/TwinPeaks.md",
+    "blog/TitanosaurusWrex.md",
     "blog/Technomancer.md",
-    "blog/5065746572.md",
-    "blog/FEN-CR.md",
-    "blog/NotDrozo2.md",
-    "blog/TwinPeaks.md"
+    "blog/Spencer.md"
   ]
 }
