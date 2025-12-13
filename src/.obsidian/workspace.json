@@ -4,137 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "d36e327aaffdd5f4",
+        "id": "b7397ad8cbd6c5b6",
         "type": "tabs",
         "children": [
           {
-            "id": "898d67517b0f34e4",
+            "id": "80efad46300cd6ca",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Dashou.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Dashou"
-            }
-          },
-          {
-            "id": "439d95af872f17be",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/PabCrab.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "PabCrab"
-            }
-          },
-          {
-            "id": "01abeaf4efb560d7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/LizardBrute.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "LizardBrute"
-            }
-          },
-          {
-            "id": "0c6fd9b521eb04e4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Vader.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Vader"
-            }
-          },
-          {
-            "id": "9de089e2e0cc79a2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Kane-Ra.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Kane-Ra"
-            }
-          },
-          {
-            "id": "1cecfff8bf0ea262",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/TahnoxS45.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "TahnoxS45"
-            }
-          },
-          {
-            "id": "a4fcedfdc76a2811",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/MR-K0.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "MR-K0"
-            }
-          },
-          {
-            "id": "1ac15b40bde3539c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Husk.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Husk"
-            }
-          },
-          {
-            "id": "e2abc1016ef2e15f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/CSMDenji.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CSMDenji"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 8
+        ]
       }
     ],
     "direction": "vertical"
@@ -296,53 +179,52 @@
       "bases:Create new base": false
     }
   },
-  "active": "e2abc1016ef2e15f",
+  "active": "80efad46300cd6ca",
   "lastOpenFiles": [
-    "assets/images/HollowKnight4/Pastedimage20251209021914.png",
-    "assets/images/HollowKnight4/Pastedimage20251209021854.png",
-    "assets/images/HollowKnight4/Pastedimage20251209021728.png",
-    "assets/images/54686520536176696f72/TheOne.png",
-    "assets/images/5065746572/TheFirst.png",
-    "assets/images/5061756c/TubeBGOne.png",
-    "assets/images/CSMDenji",
-    "assets/images/CSMDenji/main.png",
-    "blog/Untitled.md",
+    "blog/HollowKnight2.md",
+    "blog/HollowKnight3.md",
+    "blog/MK-Skyhook.md",
+    "blog/MK-Pressor.md",
+    "blog/MK-Rotomix.md",
+    "blog/Cubone.md",
+    "blog/Tsareena.md",
+    "blog/Fuerza.md",
+    "blog/Callahan.md",
+    "blog/SkyCity.md",
+    "assets/images/HollowKnight2/2.jpg",
+    "assets/images/HollowKnight2",
+    "assets/images/HollowKnight2/1.jpg",
+    "assets/images/HollowKnight3",
+    "assets/images/HollowKnight3/1.png",
+    "assets/images/MK-Skyhook",
+    "assets/images/MK-Skyhook/crane.png",
+    "assets/images/MK-Pressor",
+    "assets/images/MK-Pressor/pummel.png",
+    "assets/images/MK-Rotomix",
+    "assets/images/MK-Rotomix/concrete.png",
+    "assets/images/Cubone/IMG_9901.png",
+    "assets/images/Cubone/cubone_final2.png",
+    "assets/images/Cubone",
+    "assets/images/Cubone/cubone_final1.png",
+    "assets/images/IMG_9901 1.png",
+    "assets/images/Tsareena",
+    "assets/images/Fuerza",
+    "assets/images/Callahan",
+    "assets/images/SkyCity",
+    "blog/Rahkshi4.md",
+    "blog/Freedom.md",
+    "blog/Gyarados.md",
+    "blog/Golisopod.md",
+    "blog/StickyFingers.md",
+    "blog/Crabsquig.md",
+    "blog/LRSK.md",
+    "blog/Tropicon.md",
+    "blog/BarnOwl.md",
     "blog/CSMDenji.md",
     "blog/Husk.md",
-    "assets/images/Husk",
-    "assets/images/Husk/1.png",
     "blog/MR-K0.md",
-    "assets/images/MR-K0",
-    "assets/images/MR-K0/1.png",
     "blog/TahnoxS45.md",
-    "assets/images/TahnoxS45/2.png",
-    "assets/images/TahnoxS45",
-    "assets/images/TahnoxS45/1.png",
     "blog/Kane-Ra.md",
-    "blog/Muaka.md",
-    "assets/images/Kane-Ra",
-    "blog/Vader.md",
-    "assets/images/Vader",
-    "blog/LizardBrute.md",
-    "blog/5061756c.md",
-    "blog/().md",
-    "assets/images/LizardBrute",
-    "blog/PabCrab.md",
-    "assets/images/PabCrab",
-    "blog/Dashou.md",
-    "assets/images/Dashou",
-    "blog/Brutaka.md",
-    "blog/Heretic.md",
-    "assets/images/Heretic",
-    "blog/RoboriderDust.md",
-    "blog/BohrokNui.md",
-    "blog/Kazma.md",
-    "blog/55736275.md",
-    "blog/Monke.md",
-    "blog/Aaralyn.md",
-    "blog/DreamStealer.md",
-    "blog/Venus.md",
-    "blog/Pripyat1986.md",
-    "blog/K9.md"
+    "blog/Vader.md"
   ]
 }

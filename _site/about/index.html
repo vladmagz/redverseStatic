@@ -18,6 +18,22 @@
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="icon" href="/assets/images/Avatar_face.svg" type="image/svg+xml">
   </head>
+  
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentHost = location.host;
+    document.querySelectorAll("a[href]").forEach(a => {
+      try {
+        const url = new URL(a.href, location.origin);
+        if (url.host !== currentHost) {
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener noreferrer");
+        }
+      } catch(e) {}
+    });
+  });
+</script>
+  
   <body>
    <nav>
     <header class="site-header">

@@ -13,14 +13,17 @@ pagination:
 permalink: "/blog{% if currentTopic %}/topic/{{ currentTopic | slugify }}{% endif %}/page/{{ pagination.pageNumber + 1 }}/"
 ---
 
-<h1>Blog</h1><br>
+<div class="topics-header">
+  <h1>Blog</h1>
+  <a href="/feed.xml" class="sub-button">RSS Sub</a>
+</div>
+<br>
 
 <div class="topics-panel">
   <a href="/blog/" class="{% if not currentTopic %}active{% endif %}">All</a>
   {% for topic in collections.topicsList %}
     <a href="/blog/topic/{{ topic | slugify }}/page/1/" class="topic-btn {% if topic == currentTopic %}active{% endif %}">{{ topic }}</a>
   {% endfor %}
-  <a href="/feed.xml" class="sub-button">RSS Sub</a>
 </div>
 
 

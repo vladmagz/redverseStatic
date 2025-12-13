@@ -218,7 +218,7 @@ module.exports = function(eleventyConfig) {
 
 
 // -------------------------------------------------------------
-// IMAGE SHORTCODE
+// IMAGE COMPRESS SHORTCODE
 // -------------------------------------------------------------
 async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp", "jpeg"]) {
   let fullSrc = `./src${src}`;

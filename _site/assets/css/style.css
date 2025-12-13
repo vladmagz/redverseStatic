@@ -450,12 +450,18 @@ footer {
   word-break: break-word;
 }
 
+.blog-thumb {
+  aspect-ratio: var(--aspect-ratio); /* динамически через inline-style из шорткода */
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 .blog-thumb > img {
   width: 100%;
-  height: auto; /* сохраняет пропорции */
-  display: block; /* чтобы убрать лишние пробелы */
-  object-fit: cover; /* если хочешь обрезку, а не растяжку */
-  border-radius: 5px;
+  height: 100%;      /* заполняем контейнер */
+  display: block;
+  object-fit: cover;  /* сохраняем обрезку без растяжки */
+  transition: opacity 0.3s; /* плавное появление при подмене webp -> png */
 }
 
 .blog-pagination {
