@@ -17,8 +17,23 @@
         {{site.description}}
       {% endif %}
     "/>
+	<link rel="canonical" href="{{site.url}}{{ page.url }}">
 	<link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
 	<link rel="icon" href="/assets/images/Avatar_face.svg" type="image/svg+xml">
+	
+	<script type="application/ld+json">
+	{
+      "@context": "https://schema.org",
+	  "@type": "Person",
+	  "name": "Redverse",
+	  "url": {{site.url}},
+	  "sameAs": [
+      "https://flickr.com/tremah",
+      "https://instagram.com/redverse_"
+      ]
+    }
+</script>
+
   </head>
   
 {% include "partials/_newTabOpener.njk" %}

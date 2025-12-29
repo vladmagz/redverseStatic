@@ -1,138 +1,103 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<!--если мобильная версия ниоч, то строку ниже закомментитть -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/assets/css/tailwind.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet"> 
-    <title>Redverse - HOME  </title>
-    <meta name="description" content="
-      
-        A site to showcase my Lego builds, my other creation and to share my mind flow
-      
-    "/>
-	<link rel="stylesheet" href="/assets/css/style.css">
-	<link rel="icon" href="/assets/images/Avatar_face.svg" type="image/svg+xml">
-  </head>
-  
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const currentHost = location.host;
-    document.querySelectorAll("a[href]").forEach(a => {
-      try {
-        const url = new URL(a.href, location.origin);
-        if (url.host !== currentHost) {
-          a.setAttribute("target", "_blank");
-          a.setAttribute("rel", "noopener noreferrer");
-        }
-      } catch(e) {}
-    });
-  });
-</script>
-  
-  <body>
-   <nav>
-    <header class="site-header">
-  <nav class="site-nav">
-    <div class="icon-nav">
-      <img src="/assets/images/Avatar_face.svg" alt="Avatar">
-    </div>
-    
-      
-        <a href="/"
-           aria-current="page" data-state="active" class="nav-link">
-          HOME
-        </a>
-      
-    
-      
-        <a href="/gallery/"
-            class="nav-link">
-          CREATIONS
-        </a>
-      
-    
-      
-        <a href="/blog/"
-            class="nav-link">
-          BLOG
-        </a>
-      
-    
-      
-    
-      
-    
-	
-	<div class="dropdown">
-  <span class="nav-link">MORE▾</span>
-  <div class="dropdown-content">
-    
-      
-    
-      
-    
-      
-    
-      
-        <a href="/instructions/">INSTRUCTIONS</a>
-      
-    
-      
-        <a href="/about/">ABOUT</a>
-      
-    
+<html lang="en" class="page-splash">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <title>Redverse</title>
+  <meta name="description" content="Design, LEGO, typography, art" />
+  <link rel="canonical" href="https://redver.se/">
+  <link rel="icon" href="/assets/images/Avatar_face.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+<div class="splash-container">
+
+  <!-- Левое крыло -->
+  <div class="splash-wing-container">
+    <ul class="wing wing-left">
+      <li><a href="https://www.instagram.com/redverse_/">instagram</a></li>
+      <li><a href="https://www.flickr.com/photos/tremah/">flickr</a></li>
+      <li><a href="mailto:vlad.magz@gmail.com">email</a></li>
+      <li><a href="https://rebrickable.com/users/Redverse/mocs/">instructions</a></li>
+    </ul>
   </div>
-</div>
 
-	
-  </nav>
-</header>
+  <!-- Ядро -->
+  <div class="splash-core">
+    <span>RedVerse</span>
+  </div>
 
-   </nav>
-   <main class="max-w-3xl mx-auto py-12 min-h-screen">
-    
-<div class="welcome-block">
-	<div class="welcome-small">welcome to</div>
-	<br>
-	<div class="welcome-big">RedVerse</div>
-</div>	
+  <!-- Правое крыло -->
+  <div class="splash-wing-container">
+    <ul class="wing wing-right">
+      <li><a href="/home">home</a></li>
+      <li><a href="/gallery">gallery</a></li>
+      <li><a href="/blog">blog</a></li>
+      <li><a href="/about">about</a></li>
+      <li><a href="/links">links</a></li>
+    </ul>
+  </div>
 
-<div class="icon-row">
-	<a href="https://www.instagram.com/redverse_" class="icon">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-	</a>
-	<a href="https://www.flickr.com/photos/tremah" class="icon">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M17 5c-1.961 0-3.731.809-5.002 2.108-1.27-1.299-3.038-2.108-4.998-2.108-3.866 0-7 3.134-7 7s3.134 7 7 7c1.96 0 3.728-.809 4.998-2.108 1.271 1.299 3.041 2.108 5.002 2.108 3.866 0 7-3.134 7-7s-3.134-7-7-7zm0 12c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/></svg>
-	</a>
-	<a href="mailto:vlad.magz@gmail.com" class="icon">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-	</a><br>
 </div>
 
 
-      <h1 class="text-5xl font-bold mt-4">Hello! I create things!</h1>
-          <p class="mt-1 text-lg text-gray-600">My name is Red and I am a product designer, Lego builder and a lot other things I want to become but can't call myself that yet. I'm also a human!</p>
-      
 
-<br>
+<script>
+(async () => {
+  // Ждём DOM
+  await new Promise(r => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", r);
+    } else {
+      r();
+    }
+  });
 
-This website is dedicated to everything I create - be it building <a href="/gallery/">Lego MOCs</a>, digital artworks, typography or whatever I decide to learn on a whim. Including web development! 
-<br>The site was made from scratch in an effort to learn html+css and I plan on expanding the feature list as I figure everything out.<br>
+  // Ждём шрифты
+  if (document.fonts && document.fonts.ready) {
+    await document.fonts.ready;
+  }
+
+  // Ждём картинки
+  const images = Array.from(document.images);
+  await Promise.all(images.map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(res => {
+      img.addEventListener("load", res);
+      img.addEventListener("error", res);
+    });
+  }));
+
+  // Всё готово
+  document.documentElement.classList.add("is-loaded");
+
+  // === Подключаем hover для лучей правого крыла ===
+  const rightLinks = document.querySelectorAll('.wing-right a');
+  const rays = document.querySelectorAll('.wing-ray');
+
+  rightLinks.forEach((link, i) => {
+    link.addEventListener('mouseenter', () => rays[i].classList.add('active'));
+    link.addEventListener('mouseleave', () => rays[i].classList.remove('active'));
+  });
+
+})();
 
 
+document.querySelectorAll('.wing a').forEach(link => {
+  // случайный угол от -30 до +30
+  const randAngle = Math.random() * 60 - 30; 
+  link.style.setProperty('--skew-angle', `${randAngle}deg`);
+});
+</script>
 
-
-
-   </main>
-   <footer>
-    <footer>
-    &copy; 2025 | Redverse
-</footer>
-   </footer>
-  </body>
+</body>
 </html>

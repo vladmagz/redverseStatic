@@ -5,6 +5,8 @@ const querystring = require("querystring");
 const path = require("path");
 
 module.exports = function(eleventyConfig) {
+	
+  url: "https://redver.se";
 
   // -------------------------------------------------------------
   // STATIC FILES
@@ -29,7 +31,12 @@ module.exports = function(eleventyConfig) {
   // -------------------------------------------------------------
   eleventyConfig.addShortcode("currentDate", () => DateTime.now());
   
+  eleventyConfig.addFilter("dateISO", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISODate()
+  })
+  
   eleventyConfig.addFilter("urlencode", str => encodeURIComponent(str));
+  
 
   eleventyConfig.addFilter("postDate", dateObj =>
     DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED)

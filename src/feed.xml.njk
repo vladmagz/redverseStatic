@@ -5,13 +5,13 @@ eleventyExcludeFromCollections: true
 <rss version="2.0">
   <channel>
     <title>Redverse Blog</title>
-    <link>https://redverse.netlify.app</link>
+    <link>{{site.url}}</link>
     <description>Updates</description>
 
     {% for post in collections.post %}
       <item>
         <title>{{ post.data.title | xmlEscape }}</title>
-        <link>https://redverse.netlify.app{{ post.url }}</link>
+        <link>{{site.url}}{{ post.url }}</link>
         <pubDate>{{ post.date | rssDate }}</pubDate>
         <description>{{ post.data.description | xmlEscape }}</description>
       </item>

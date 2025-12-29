@@ -16,7 +16,7 @@ postCollection: collections.postsByTopic["MOC"]
 <div class="moc-gallery">
   {% for post in collections.postsByTopic["MOC"] %}
     <a class="moc-card" href="{{ post.url }}?gallery=true">
-      <div class="moc-thumb">
+      <div class="blog-thumb">
         {% if post.data.hero %}
           {% image post.data.hero, post.data.title %}
         {% endif %}

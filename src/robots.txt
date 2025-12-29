@@ -7,9 +7,9 @@ Allow: /
 
 # Host
 
-Host: https://redverse.netlify.app/
+Host: {{site.url}}/
 
 
 # Sitemaps
 
-Sitemap: https://redverse.netlify.app/sitemap.xml
+Sitemap: https://{{site.url}}/sitemap.xml

@@ -11,13 +11,46 @@
             "id": "80efad46300cd6ca",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/RW-GrubJaw.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "RW-GrubJaw"
+            }
+          },
+          {
+            "id": "e54d8d64839ac0b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/RW-PushWell.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "RW-PushWell"
+            }
+          },
+          {
+            "id": "f9e17f011e000e34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/RW-RumbleJack.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "RW-RumbleJack"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -179,12 +212,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "80efad46300cd6ca",
+  "active": "f9e17f011e000e34",
   "lastOpenFiles": [
+    "assets/images/RW-RumbleJack",
+    "assets/images/RW-RumbleJack/RumbleJack.png",
+    "blog/RW-PushWell.md",
+    "blog/RW-RumbleJack.md",
+    "assets/images/RW-PushWell",
+    "assets/images/RW-PushWell/PushWell.png",
+    "blog/RW-GrubJaw.md",
+    "blog/MK-Pressor.md",
+    "assets/images/RW-GrubJaw",
+    "assets/images/RW-GrubJaw/GrubJaw.png",
+    "assets/images/GrubJaw",
+    "assets/images/GrubJaw/GrubJaw.png",
     "blog/HollowKnight2.md",
     "blog/HollowKnight3.md",
     "blog/MK-Skyhook.md",
-    "blog/MK-Pressor.md",
     "blog/MK-Rotomix.md",
     "blog/Cubone.md",
     "blog/Tsareena.md",
@@ -202,15 +246,8 @@
     "assets/images/MK-Pressor/pummel.png",
     "assets/images/MK-Rotomix",
     "assets/images/MK-Rotomix/concrete.png",
-    "assets/images/Cubone/IMG_9901.png",
-    "assets/images/Cubone/cubone_final2.png",
     "assets/images/Cubone",
-    "assets/images/Cubone/cubone_final1.png",
-    "assets/images/IMG_9901 1.png",
     "assets/images/Tsareena",
-    "assets/images/Fuerza",
-    "assets/images/Callahan",
-    "assets/images/SkyCity",
     "blog/Rahkshi4.md",
     "blog/Freedom.md",
     "blog/Gyarados.md",
@@ -222,9 +259,6 @@
     "blog/BarnOwl.md",
     "blog/CSMDenji.md",
     "blog/Husk.md",
-    "blog/MR-K0.md",
-    "blog/TahnoxS45.md",
-    "blog/Kane-Ra.md",
-    "blog/Vader.md"
+    "blog/MR-K0.md"
   ]
 }

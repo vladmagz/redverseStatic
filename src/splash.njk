@@ -1,0 +1,107 @@
+---
+permalink: /
+eleventyExcludeFromCollections: true
+---
+
+<!DOCTYPE html>
+<html lang="en" class="page-splash">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <title>{{ site.title }}{% if title %} - {{ title }} {% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/assets/images/Avatar_face.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+<div class="splash-container">
+
+  <!-- Левое крыло -->
+  <div class="splash-wing-container">
+    <ul class="wing wing-left">
+      <li><a href="https://www.instagram.com/redverse_/">instagram</a></li>
+      <li><a href="https://www.flickr.com/photos/tremah/">flickr</a></li>
+      <li><a href="mailto:vlad.magz@gmail.com">email</a></li>
+      <li><a href="https://rebrickable.com/users/Redverse/mocs/">instructions</a></li>
+    </ul>
+  </div>
+
+  <!-- Ядро -->
+  <div class="splash-core">
+    <span>RedVerse</span>
+  </div>
+
+  <!-- Правое крыло -->
+  <div class="splash-wing-container">
+    <ul class="wing wing-right">
+      <li><a href="/home">home</a></li>
+      <li><a href="/gallery">gallery</a></li>
+      <li><a href="/blog">blog</a></li>
+      <li><a href="/about">about</a></li>
+      <li><a href="/links">links</a></li>
+    </ul>
+  </div>
+
+</div>
+
+
+
+<script>
+(async () => {
+  // Ждём DOM
+  await new Promise(r => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", r);
+    } else {
+      r();
+    }
+  });
+
+  // Ждём шрифты
+  if (document.fonts && document.fonts.ready) {
+    await document.fonts.ready;
+  }
+
+  // Ждём картинки
+  const images = Array.from(document.images);
+  await Promise.all(images.map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(res => {
+      img.addEventListener("load", res);
+      img.addEventListener("error", res);
+    });
+  }));
+
+  // Всё готово
+  document.documentElement.classList.add("is-loaded");
+
+  // === Подключаем hover для лучей правого крыла ===
+  const rightLinks = document.querySelectorAll('.wing-right a');
+  const rays = document.querySelectorAll('.wing-ray');
+
+  rightLinks.forEach((link, i) => {
+    link.addEventListener('mouseenter', () => rays[i].classList.add('active'));
+    link.addEventListener('mouseleave', () => rays[i].classList.remove('active'));
+  });
+
+})();
+
+
+document.querySelectorAll('.wing a').forEach(link => {
+  // случайный угол от -30 до +30
+  const randAngle = Math.random() * 60 - 30; 
+  link.style.setProperty('--skew-angle', `${randAngle}deg`);
+});
+</script>
+
+</body>
+</html>
