@@ -1,7 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const pageHeading = require("./src/_includes/shortcodes/pageHeading.js");
-const querystring = require("querystring");
 const path = require("path");
 
 module.exports = function(eleventyConfig) {
@@ -166,35 +165,7 @@ module.exports = function(eleventyConfig) {
   });
 
 
-  // -------------------------------------------------------------
-  // AUTO WEBP GENERATION FOR ALL PNG IN HTML
-  // -------------------------------------------------------------
-  eleventyConfig.addTransform("autoWebpForMarkdownPng", async function(content, outputPath) {
-    if (!outputPath || !outputPath.endsWith(".html")) return content;
-
-    const regex = /<img[^>]+src=["']([^"']+\.png)["'][^>]*>/gi;
-    const tasks = [];
-    let match;
-
-    while ((match = regex.exec(content)) !== null) {
-      const pngUrl = match[1];
-      const input = path.join("src", pngUrl);
-      const outputDir = path.join("_site", path.dirname(pngUrl));
-      const urlPath = path.dirname(pngUrl);
-
-      tasks.push(
-        Image(input, {
-          widths: [800, 1200],
-          formats: ["webp"],
-          outputDir,
-          urlPath,
-        })
-      );
-    }
-
-    if (tasks.length) await Promise.all(tasks);
-    return content;
-  });
+  
 
 
   // -------------------------------------------------------------
@@ -226,19 +197,26 @@ module.exports = function(eleventyConfig) {
 // IMAGE COMPRESS SHORTCODE
 // -------------------------------------------------------------
 async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp", "jpeg"]) {
-  let fullSrc = `./src${src}`;
-  let metadata = await Image(fullSrc, {
-    widths,
-    formats,
-    urlPath: "/images/",
-    outputDir: "./_site/images/"
-  });
+  try {
+    let fullSrc = `./src${src}`;
+    let metadata = await Image(fullSrc, {
+      widths,
+      formats,
+      urlPath: "/images/",
+      outputDir: "./_site/images/"
+    });
 
-  let lowRes = metadata.jpeg[0];
-  const aspectRatio = (lowRes.width / lowRes.height).toFixed(4);
+    // Fallback: используем первый доступный формат
+    let lowRes = metadata.jpeg?.[0] || metadata.webp?.[0] || Object.values(metadata)[0]?.[0];
+    
+    if (!lowRes) {
+      console.error(`No image generated for ${src}`);
+      return `<img src="${src}" alt="${alt}" style="max-width:100%;">`;
+    }
 
-  return `
-    <div class="blog-thumb" style="aspect-ratio:${aspectRatio};overflow:hidden;border-radius:5px;">
+    const aspectRatio = (lowRes.width / lowRes.height).toFixed(4);
+
+    return `
       <picture>
         ${Object.values(metadata)
           .map(arr =>
@@ -249,8 +227,11 @@ async function imageShortcode(src, alt, widths = [800, 1200], formats = ["webp",
           .join("")}
         <img src="${lowRes.url}" alt="${alt}" loading="lazy" decoding="async"
              width="${lowRes.width}" height="${lowRes.height}"
-             style="width:100%;height:100%;object-fit:cover;">
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:${aspectRatio};">
       </picture>
-    </div>
-  `;
+    `;
+  } catch (error) {
+    console.error(`Error processing image ${src}:`, error.message);
+    return `<img src="${src}" alt="${alt}" style="max-width:100%;">`;
+  }
 }

@@ -16,11 +16,11 @@ postCollection: collections.postsByTopic["MOC"]
 <div class="moc-gallery">
   {% for post in collections.postsByTopic["MOC"] %}
     <a class="moc-card" href="{{ post.url }}?gallery=true">
-      <div class="blog-thumb">
-        {% if post.data.hero %}
+            {% if post.data.hero %}
+        <div class="blog-thumb">
           {% image post.data.hero, post.data.title %}
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
       <div class="moc-title">{{ post.data.title }}</div>
     </a>
   {% endfor %}
