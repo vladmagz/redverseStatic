@@ -5,8 +5,6 @@ const querystring = require("querystring");
 const path = require("path");
 
 module.exports = function(eleventyConfig) {
-	
-  url: "https://redver.se";
 
   // -------------------------------------------------------------
   // STATIC FILES

@@ -7,9 +7,9 @@ Allow: /
 
 # Host
 
-Host: {{site.url}}/
+Host: https://redver.se/
 
 
 # Sitemaps
 
-Sitemap: https://{{site.url}}/sitemap.xml
+Sitemap: https://redver.se/sitemap.xml
