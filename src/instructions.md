@@ -11,6 +11,34 @@ order: 4
 
 <div class="product-card">
   <div class="product-card__image">
+    <img src="/assets/images/HollowKnight5/2.png" alt="BellBeast">
+  </div>
+
+  <div class="product-card__content">
+    <h2 class="product-card__title">Bell Beast</h2>
+
+    <div class="product-card__meta">
+      <div class="product-card__row">
+        <span class="product-card__label">Partcount:</span>
+        <span class="product-card__value">846</span>
+      </div>
+      <div class="product-card__row product-card__price-row">
+	    <span><span class="product-card__label">Price: </span>
+        <span class="product-card__value">12 EUR</span></span>
+        <a
+          href="https://rebrickable.com/mocs/MOC-247937/Redverse/bell-beast-hollow-knight-silksong/#details"
+          class="product-card__button"
+        >
+          Go to Rebrickable
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="product-card">
+  <div class="product-card__image">
     <img src="/assets/images/Cubone/cubone_final1.png" alt="Cubone">
   </div>
 
@@ -36,13 +64,14 @@ order: 4
   </div>
 </div>
 <br>
+
 <div class="product-card">
   <div class="product-card__image">
     <img src="/assets/images/Magikarp/karp_final.png" alt="Magikarp">
   </div>
 
   <div class="product-card__content">
-    <h2 class="product-card__title">Cubone</h2>
+    <h2 class="product-card__title">Magikarp</h2>
 
     <div class="product-card__meta">
       <div class="product-card__row">
