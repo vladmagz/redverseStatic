@@ -1,5 +1,5 @@
 ---
-title: MegaBlaziken
+title: "Pokémon #0130 - Mega Blaziken"
 description: After a few years I'm back into collabs. I'm confident enough to try again. And hey, happy Pokemon day!
 date: 2026-02-27
 hero: /assets/images/MegaBlaziken/Blaziken_main.png
