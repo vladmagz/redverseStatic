@@ -7,7 +7,7 @@ topics:
   - MOC
 ---
 
-# Pokémon #130 - Gyarados
+# Pokémon #0130 - Gyarados
 ![](assets/images/Gyarados/1.png)Going through my favorite Pokemon and it's time for my boi Gyarados. Always had him in my team in Fire Red and in other games. Got back into Pokemon Go last year and found my ancient perfect IV Magikarp. So this build is dedicated to this Karp who waited 7 years to be evolved, haha :)
 ![](assets/images/Gyarados/2.png)
 In terms of poseability - it's head, neck segment and first 2 segments after that are slightly poseable with then big ratchet rotation joints. Same applies to the last 7 segments of its tail. The middle section is a solid chunk with techniс frame inside.

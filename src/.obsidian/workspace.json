@@ -8,49 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "80efad46300cd6ca",
+            "id": "b10ae4f061bb2396",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/RW-GrubJaw.md",
+                "file": "blog/MegaBlaziken.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RW-GrubJaw"
-            }
-          },
-          {
-            "id": "e54d8d64839ac0b2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/RW-PushWell.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "RW-PushWell"
-            }
-          },
-          {
-            "id": "f9e17f011e000e34",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/RW-RumbleJack.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "RW-RumbleJack"
+              "title": "MegaBlaziken"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,12 +183,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "f9e17f011e000e34",
+  "active": "b10ae4f061bb2396",
   "lastOpenFiles": [
+    "assets/images/MegaBlaziken/Blaziken_back.png",
+    "blog/PabCrab.md",
+    "assets/images/MegaBlaziken/Blaziken_face.png",
+    "blog/MegaBlaziken.md",
+    "blog/Pripyat1986.md",
+    "assets/images/Pokémon #0130 - Mega Blaziken/Blaziken_face-1.png",
+    "assets/images/Pokémon #0130 - Mega Blaziken",
+    "assets/images/Pokémon #0130 - Mega Blaziken/Blaziken_face.png",
+    "blog/HollowKnight2.md",
+    "blog/Golisopod.md",
+    "blog/Cubone.md",
+    "blog/Gyarados.md",
+    "assets/images/MegaBlaziken",
+    "assets/images/MegaBlaziken/Blaziken_main.png",
+    "blog/RW-RumbleJack.md",
     "assets/images/RW-RumbleJack",
     "assets/images/RW-RumbleJack/RumbleJack.png",
     "blog/RW-PushWell.md",
-    "blog/RW-RumbleJack.md",
     "assets/images/RW-PushWell",
     "assets/images/RW-PushWell/PushWell.png",
     "blog/RW-GrubJaw.md",
@@ -226,11 +211,9 @@
     "assets/images/RW-GrubJaw/GrubJaw.png",
     "assets/images/GrubJaw",
     "assets/images/GrubJaw/GrubJaw.png",
-    "blog/HollowKnight2.md",
     "blog/HollowKnight3.md",
     "blog/MK-Skyhook.md",
     "blog/MK-Rotomix.md",
-    "blog/Cubone.md",
     "blog/Tsareena.md",
     "blog/Fuerza.md",
     "blog/Callahan.md",
@@ -239,26 +222,14 @@
     "assets/images/HollowKnight2",
     "assets/images/HollowKnight2/1.jpg",
     "assets/images/HollowKnight3",
-    "assets/images/HollowKnight3/1.png",
     "assets/images/MK-Skyhook",
-    "assets/images/MK-Skyhook/crane.png",
     "assets/images/MK-Pressor",
-    "assets/images/MK-Pressor/pummel.png",
-    "assets/images/MK-Rotomix",
-    "assets/images/MK-Rotomix/concrete.png",
-    "assets/images/Cubone",
-    "assets/images/Tsareena",
     "blog/Rahkshi4.md",
     "blog/Freedom.md",
-    "blog/Gyarados.md",
-    "blog/Golisopod.md",
     "blog/StickyFingers.md",
     "blog/Crabsquig.md",
     "blog/LRSK.md",
     "blog/Tropicon.md",
-    "blog/BarnOwl.md",
-    "blog/CSMDenji.md",
-    "blog/Husk.md",
-    "blog/MR-K0.md"
+    "blog/BarnOwl.md"
   ]
 }

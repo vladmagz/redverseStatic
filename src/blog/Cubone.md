@@ -7,7 +7,7 @@ topics:
   - MOC
 ---
 
-# Pokémon #104 - Cubone
+# Pokémon #0104 - Cubone
 
 ![](assets/images/Cubone/cubone_final1.png)A lil' guy for change. The whole pokemon series was one big study in following existing concepts in several different scales. Combined with playing around with my favorite creature designs.
 ![](assets/images/Cubone/cubone_final2.png)

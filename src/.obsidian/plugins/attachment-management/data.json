@@ -713,6 +713,18 @@
     {
       "n": "RumbleJack",
       "md5": "A93ADB83B51D61223D9495AA326E7B20"
+    },
+    {
+      "n": "Blaziken_main",
+      "md5": "D20EA7F1393B49EB543A9D34F2B784EE"
+    },
+    {
+      "n": "Blaziken_face",
+      "md5": "325C83969B88EE3DDF67789BFDCE7C17"
+    },
+    {
+      "n": "Blaziken_back",
+      "md5": "98A2AC77E5F8ADC7DFE1E694F49A9EB8"
     }
   ],
   "overridePath": {},
